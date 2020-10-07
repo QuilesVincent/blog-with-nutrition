@@ -1,0 +1,303 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/circuitSelected.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="leftHeader">
+            <div class="nameCoach childHeader">
+                <span>Vincent Quiles</span>
+                <span>Cedric Bollaert</span>
+                <span>Créateur de SVM Coaching</span>
+            </div>
+
+        </div>
+        <div class="centerHeader childHeader">
+            <div class="titleHeader">
+                <h1>SVM Coaching Challenge</h1>
+                <span>Le santé, la vitalité, pour le meilleur</span>
+            </div>
+
+            <div class="gestionUI">
+                <div class="infoUser">
+                    <p>{{ app.user.getUsername() }}</p>
+                    <p>Phase
+                        ...</p> {# inscrire la phase en cours (surement à rajoute dans la bdd et dans human, ou juste dans human en fonction de la date de création du compte)#}
+                </div>
+                <div class="linkStat">
+                    <a href="{{ path("programme_stat_evolution") }}"><p>Stats et évolution</p></a>
+                </div>
+                <div class="mail">
+                    <a href=""><p>Nos messages</p></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightHeader childHeader">
+            <div class="contentRightHeader">
+                <div class="selectLanguageContent">
+                    <div class="contentEN langageNoSelect">EN</div>
+                    <div class="contentFR langageSelect">FR</div>
+                </div>
+                <div class="contentDeco">
+                    <a href="{{ path("security_logOut") }}">Déconnexion</a>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+    <div class="blocPage">
+        <div class="firstLeft blockDiv"></div>
+
+        <div class="secondBlock blockDiv">
+            <div class="onglet ongletTraining">
+                <a href="{{ path("programme-sport-entrainements") }}">
+                    <div class="leftOnglet">
+                        <span class="titleOnglet">Mes training</span>
+                    </div>
+                    <div class="rightOnglet trainingRightOnglet">
+                        <div class="imgOnglet imgTrainingOnglet"></div>
+                    </div>
+
+                </a>
+            </div>
+            <div class="onglet ongletMeal">
+                <a href="{{ path("programme-sport-recettes") }}">
+                    <div class="leftOnglet recetteLeftOnglet">
+                        <span class="titleOnglet">Mes recettes</span>
+                    </div>
+                    <div class="rightOnglet recetteRightOnglet">
+                        <div class="imgOnglet imgRecetteOnglet"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="onglet ongletPlanning">
+                <a href="{{ path("programme-sport-planning") }}">
+                    <div class="leftOnglet planningLeftOnglet">
+                        <span class="titleOnglet">Mon planning</span>
+                    </div>
+                    <div class="rightOnglet planningRightOnglet">
+                        <div class="imgOnglet imgPlanningOnglet"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="onglet ongletArticle">
+                <a href="{{ path("index") }}">
+                    <div class="leftOnglet articleLeftOnglet">
+                        <span class="titleOnglet">Mes articles</span>
+                    </div>
+                    <div class="rightOnglet articleRightOnglet">
+                        <div class="imgOnglet imgArticleOnglet"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <section class="thirdBlock principalBlock blockDiv">
+            <p>Calories du menu : {{ test.getTotalCalories() }}</p>
+            <p>Calories obtenu grâce aux aliments : {{ test.getTotalCaloriesAliments() }}</p>
+            <p>Total du fat : {{ test.getTotalFat() }}</p>
+            <p>Total du sugar : {{ test.getTotalCarbohydrates() }}</p>
+            <p>Total des protéines : {{ test.getTotalProteins() }}</p>
+            {% for alim in test.getArrayAllAlim() %}
+            <p>{{ alim.getName() }} : {{ alim.getQuantityNeeded() }} grammes</p>
+                <p>{{ alim.getTotalCalories() }} calories de {{ alim.getName() }}</p>
+                <p>{{ alim.getTotalCarbohydrate() }} grammes de glucides</p>
+                <p>{{ alim.getTotalFat() }} grammes de fat</p>
+                <p>{{ alim.getTotalProteines() }} grammes de protéines</p>
+                {% if alim.getPoidsFruitMoyen() is defined %}
+                    <p>{{ alim.getPoidsFruitMoyen }}</p>
+                {% endif %}
+            {% endfor %}
+            <hr>
+            <hr>
+            <p>Calories du menu : {{ test2.getTotalCalories }}</p>
+            <p>Calories obtenu grâce aux aliments : {{ test2.getTotalCaloriesAliments() }}</p>
+            <p>Total du fat : {{ test2.getTotalFat() }}</p>
+            <p>Total du sugar : {{ test2.getTotalCarbohydrates() }}</p>
+            <p>Total des protéines : {{ test2.getTotalProteins() }}</p>
+            {% for alim in test2.getArrayAllAlim() %}
+                <p>{{ alim.getName() }} : {{ alim.getQuantityNeeded() }} grammes</p>
+                <p>{{ alim.getTotalCalories() }} calories de {{ alim.getName() }}</p>
+                <p>{{ alim.getTotalCarbohydrate() }} grammes de glucides</p>
+                <p>{{ alim.getTotalFat() }} grammes de fat</p>
+                <p>{{ alim.getTotalProteines() }} grammes de protéines</p>
+                {% if alim.getPoidsFruitMoyen() is defined %}
+                    <p>{{ alim.getPoidsFruitMoyen }}</p>
+                {% endif %}
+            {% endfor %}
+
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+            <p>Calories du menu : {{ test3.getTotalCalories }}</p>
+            <p>Calories obtenu grâce aux aliments : {{ test3.getTotalCaloriesAliments() }}</p>
+            <p>Total du fat : {{ test3.getTotalFat() }}</p>
+            <p>Total du sugar : {{ test3.getTotalCarbohydrates() }}</p>
+            <p>Total des protéines : {{ test3.getTotalProteins() }}</p>
+            {% for alim in test3.getArrayAllAlim() %}
+                <p>{{ alim.getName() }} : {{ alim.getQuantityNeeded() }} grammes</p>
+                <p>{{ alim.getTotalCalories() }} calories de {{ alim.getName() }}</p>
+                <p>{{ alim.getTotalCarbohydrate() }} grammes de glucides</p>
+                <p>{{ alim.getTotalFat() }} grammes de fat</p>
+                <p>{{ alim.getTotalProteines() }} grammes de protéines</p>
+                {% if alim.getPoidsFruitMoyen() is defined %}
+                    <p>{{ alim.getPoidsFruitMoyen }}</p>
+                {% endif %}
+            {% endfor %}
+
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+            <p>Calories du menu : {{ test4.getTotalCalories }}</p>
+            <p>Calories obtenu grâce aux aliments : {{ test4.getTotalCaloriesAliments() }}</p>
+            <p>Total du fat : {{ test4.getTotalFat() }}</p>
+            <p>Total du sugar : {{ test4.getTotalCarbohydrates() }}</p>
+            <p>Total des protéines : {{ test4.getTotalProteins() }}</p>
+            {% for alim in test4.getArrayAllAlim() %}
+                <p>{{ alim.getName() }} : {{ alim.getQuantityNeeded() }} grammes</p>
+                <p>{{ alim.getTotalCalories() }} calories de {{ alim.getName() }}</p>
+                <p>{{ alim.getTotalCarbohydrate() }} grammes de glucides</p>
+                <p>{{ alim.getTotalFat() }} grammes de fat</p>
+                <p>{{ alim.getTotalProteines() }} grammes de protéines</p>
+                {% if alim.getPoidsFruitMoyen() is defined %}
+                    <p>{{ alim.getPoidsFruitMoyen }}</p>
+                {% endif %}
+            {% endfor %}
+
+
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+            <p>Calories du menu : {{ test5.getTotalCalories }}</p>
+            <p>Calories obtenu grâce aux aliments : {{ test5.getTotalCaloriesAliments() }}</p>
+            <p>Total du fat : {{ test5.getTotalFat() }}</p>
+            <p>Total du sugar : {{ test5.getTotalCarbohydrates() }}</p>
+            <p>Total des protéines : {{ test5.getTotalProteins() }}</p>
+            {% for alim in test5.getArrayAllAlim() %}
+                <p>{{ alim.getName() }} : {{ alim.getQuantityNeeded() }} grammes</p>
+                <p>{{ alim.getTotalCalories() }} calories de {{ alim.getName() }}</p>
+                <p>{{ alim.getTotalCarbohydrate() }} grammes de glucides</p>
+                <p>{{ alim.getTotalFat() }} grammes de fat</p>
+                <p>{{ alim.getTotalProteines() }} grammes de protéines</p>
+                {% if alim.getPoidsFruitMoyen() is defined %}
+                    <p>{{ alim.getPoidsFruitMoyen }}</p>
+                {% endif %}
+            {% endfor %}
+
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+            <p>Calories du menu : {{ test6.getTotalCalories }}</p>
+            <p>Calories obtenu grâce aux aliments : {{ test6.getTotalCaloriesAliments() }}</p>
+            <p>Total du fat : {{ test6.getTotalFat() }}</p>
+            <p>Total du sugar : {{ test6.getTotalCarbohydrates() }}</p>
+            <p>Total des protéines : {{ test6.getTotalProteins() }}</p>
+            {% for alim in test6.getArrayAllAlim() %}
+                <p>{{ alim.getName() }} : {{ alim.getQuantityNeeded() }} grammes</p>
+                <p>{{ alim.getTotalCalories() }} calories de {{ alim.getName() }}</p>
+                <p>{{ alim.getTotalCarbohydrate() }} grammes de glucides</p>
+                <p>{{ alim.getTotalFat() }} grammes de fat</p>
+                <p>{{ alim.getTotalProteines() }} grammes de protéines</p>
+                {% if alim.getPoidsFruitMoyen() is defined %}
+                    <p>{{ alim.getPoidsFruitMoyen }}</p>
+                {% endif %}
+            {% endfor %}
+
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+            <p>Calories du menu : {{ test7.getTotalCalories }}</p>
+            <p>Calories obtenu grâce aux aliments : {{ test7.getTotalCaloriesAliments() }}</p>
+            <p>Total du fat : {{ test7.getTotalFat() }}</p>
+            <p>Total du sugar : {{ test7.getTotalCarbohydrates() }}</p>
+            <p>Total des protéines : {{ test7.getTotalProteins() }}</p>
+            {% for alim in test7.getArrayAllAlim() %}
+                <p>{{ alim.getName() }} : {{ alim.getQuantityNeeded() }} grammes</p>
+                <p>{{ alim.getTotalCalories() }} calories de {{ alim.getName() }}</p>
+                <p>{{ alim.getTotalCarbohydrate() }} grammes de glucides</p>
+                <p>{{ alim.getTotalFat() }} grammes de fat</p>
+                <p>{{ alim.getTotalProteines() }} grammes de protéines</p>
+                {% if alim.getPoidsFruitMoyen() is defined %}
+                    <p>{{ alim.getPoidsFruitMoyen }}</p>
+                {% endif %}
+            {% endfor %}
+
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+            <p>Calories du menu : {{ test8.getTotalCalories }}</p>
+            <p>Calories obtenu grâce aux aliments : {{ test8.getTotalCaloriesAliments() }}</p>
+            <p>Total du fat : {{ test8.getTotalFat() }}</p>
+            <p>Total du sugar : {{ test8.getTotalCarbohydrates() }}</p>
+            <p>Total des protéines : {{ test8.getTotalProteins() }}</p>
+            {% for alim in test8.getArrayAllAlim() %}
+                <p>{{ alim.getName() }} : {{ alim.getQuantityNeeded() }} grammes</p>
+                <p>{{ alim.getTotalCalories() }} calories de {{ alim.getName() }}</p>
+                <p>{{ alim.getTotalCarbohydrate() }} grammes de glucides</p>
+                <p>{{ alim.getTotalFat() }} grammes de fat</p>
+                <p>{{ alim.getTotalProteines() }} grammes de protéines</p>
+                {% if alim.getPoidsFruitMoyen() is defined %}
+                    <p>{{ alim.getPoidsFruitMoyen }}</p>
+                {% endif %}
+            {% endfor %}
+
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+            <p>Calories du menu : {{ test9.getTotalCalories }}</p>
+            <p>Calories obtenu grâce aux aliments : {{ test9.getTotalCaloriesAliments() }}</p>
+            <p>Total du fat : {{ test9.getTotalFat() }}</p>
+            <p>Total du sugar : {{ test9.getTotalCarbohydrates() }}</p>
+            <p>Total des protéines : {{ test9.getTotalProteins() }}</p>
+            {% for alim in test9.getArrayAllAlim() %}
+                <p>{{ alim.getName() }} : {{ alim.getQuantityNeeded() }} grammes</p>
+                <p>{{ alim.getTotalCalories() }} calories de {{ alim.getName() }}</p>
+                <p>{{ alim.getTotalCarbohydrate() }} grammes de glucides</p>
+                <p>{{ alim.getTotalFat() }} grammes de fat</p>
+                <p>{{ alim.getTotalProteines() }} grammes de protéines</p>
+                {% if alim.getPoidsFruitMoyen() is defined %}
+                    <p>{{ alim.getPoidsFruitMoyen }}</p>
+                {% endif %}
+            {% endfor %}
+
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+            <p>Calories du menu : {{ test10.getTotalCalories }}</p>
+            <p>Calories obtenu grâce aux aliments : {{ test10.getTotalCaloriesAliments() }}</p>
+            <p>Total du fat : {{ test10.getTotalFat() }}</p>
+            <p>Total du sugar : {{ test10.getTotalCarbohydrates() }}</p>
+            <p>Total des protéines : {{ test10.getTotalProteins() }}</p>
+            {% for alim in test10.getArrayAllAlim() %}
+                <p>{{ alim.getName() }} : {{ alim.getQuantityNeeded() }} grammes</p>
+                <p>{{ alim.getTotalCalories() }} calories de {{ alim.getName() }}</p>
+                <p>{{ alim.getTotalCarbohydrate() }} grammes de glucides</p>
+                <p>{{ alim.getTotalFat() }} grammes de fat</p>
+                <p>{{ alim.getTotalProteines() }} grammes de protéines</p>
+                {% if alim.getPoidsFruitMoyen() is defined %}
+                    <p>{{ alim.getPoidsFruitMoyen }}</p>
+                {% endif %}
+            {% endfor %}
+        </section>
+
+        <div class="firstRight lastBlock blockDiv"></div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

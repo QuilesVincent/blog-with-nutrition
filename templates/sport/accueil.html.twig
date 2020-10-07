@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/accueil.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="nameAndLogo"></div>
+        <div class="fewThemes">
+            <p>Nutrition</p>
+            <p>HIIT</p>
+            <p>Yoga</p>
+            <p>Circuit Training</p>
+            <p>Stretching</p>
+        </div>
+        <div class="contentInscriptionConnexion">
+            <div class="connexionButton">
+                <p>Se connecter</p>
+            </div>
+            <div class="inscriptionButton">
+                <p>S'inscrire</p>
+            </div>
+        </div>
+    </header>
+    <div class="principalScreen">
+        <div class="sentence1">
+            Deviens un modèle de réussite
+        </div>
+        <div class="sentence2">
+            Rejoins nous pour atteindre tes objectifs directement de ta maison
+        </div>
+        <div class="contentButtonAbo">
+            <div class="buttonAbo">
+                Découvre nos abonnements
+            </div>
+        </div>
+    </div>
+    <section class="page_connexion hide">
+        {% if form_errors(form) %}
+        <div class="form_error">
+            {{ form_errors(form) }}
+            {% endif %}
+        </div>
+        <div class="formDiv">
+            {{ form_start(form, {"attr": {"class": "form_co"}}) }}
+            {{ form_row(form.username) }}
+            {{ form_row(form.password) }}
+            <div class="connexion">
+                <input type="submit" value="se connecter">
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+    </section>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/sport/accueil.js") }}"></script>
+{% endblock %}

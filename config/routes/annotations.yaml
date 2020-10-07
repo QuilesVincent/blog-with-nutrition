@@ -1,0 +1,19 @@
+controllersAdmin:
+    resource: ../../src/Domain/Admin/Controller/
+    type: annotation
+
+controllersBlog:
+    resource: ../../src/Domain/Blog/Controller/
+    type: annotation
+
+controllersProgramme:
+    resource: ../../src/Domain/Programme/Controller/
+    type: annotation
+
+controllersSport:
+    resource: ../../src/Domain/Sport/Controller/
+    type: annotation
+
+kernel:
+    resource: ../../src/Kernel.php
+    type: annotation

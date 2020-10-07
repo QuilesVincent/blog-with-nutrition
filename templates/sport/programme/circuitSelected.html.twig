@@ -1,0 +1,162 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/circuitSelected.css') }}">
+{% endblock %}
+
+{% block javascript_head %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="blocPage">
+        <div class="firstLeft blockDiv">
+            <div class="contentCircleLogo">
+                <div class="divContentCircleLogo">
+                    <a href="{{ path("programme_page_programs") }}" class="circleLogo"></a>
+                </div>
+
+            </div>
+            <div class="contentAllOnglet">
+                <div class="onglet ongletTraining">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-entrainements") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-entrainements-demo") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletMeal">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-recettes") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-recettes-demo") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletPlanning">
+                    <a href="{{ path("programme-sport-planning") }}">
+                        <div class="leftOnglet planningLeftOnglet">
+                            <div class="imgOnglet imgPlanningOnglet"></div>
+                        </div>
+                        <div class="rightOnglet planningRightOnglet">
+                            <span class="titleOnglet">Mon planning</span>
+                        </div>
+
+                    </a>
+                </div>
+                <div class="onglet ongletArticle">
+                    <a href="{{ path("index") }}">
+                        <div class="leftOnglet articleLeftOnglet">
+                            <div class="imgOnglet imgArticleOnglet"></div>
+                        </div>
+                        <div class="rightOnglet articleRightOnglet">
+                            <span class="titleOnglet">Mes articles</span>
+                        </div>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section class="secondBlock principalBlock blockDiv">
+            <div class="iconesCircuit">
+                <div class="nameCircuitVideo">
+                    <p>{{ circuit.getName() }}</p>
+                </div>
+                <video class="videoTraining" controls="controls"
+                       poster="{{ asset("image/exercices/pompesModif.jpg") }}">
+                    <source src="{{ asset(circuit.getPathVideo()) }}" type="video/mp4">
+                    Le fichier ne peut être lu
+                </video>
+            </div>
+
+            <div class="divContenerPdfAndPodcast">
+                <figure class="podcastCircuit">
+                    <audio controls="controls" src="{{ asset(circuit.getPathPodcast()) }}">Le navigateur ne supporte pas
+                        l'élément audio
+                    </audio>
+                </figure>
+                <div class="divContenerPdf">
+                    <p>Lien pdf</p>
+                </div>
+            </div>
+
+            <div class="explicationPrincipalBlock">
+                <p>Quelques explications</p>
+                <div class="divContentAllDivExplication">
+                    {% for explication in circuit.getExplication() %}
+                        <div class="explicationContent">
+                            <p>{{ explication }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+        </section>
+
+        <div class="thirdBlock lastBlock blockDiv">
+            <div class="blockCircuit">
+                <div class="numberLap">
+                    <p>X tours</p>
+                </div>
+                <div class="lineAndExercices">
+                    <div class="divContentLineWithPoint">
+                    </div>
+                    <div class="divContentAllExercices">
+                        {% for exercice in circuit.getExercices() %}
+                            <div class="contentExerciceAndTime">
+                                <p class="nameExercice"> {{ exercice }}</p>
+                                <p class="timeExercice"> 30 secondes</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="addToPlaning">
+                <p>Ajouter à mon planning</p>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/sport/circuitSelected.js") }}"></script>
+{% endblock %}

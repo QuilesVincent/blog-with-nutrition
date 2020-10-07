@@ -1,0 +1,141 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/allProgramsPreVersion.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="leftHeader">
+            <div class="nameCoach childHeader">
+                <span>Vincent Quiles</span>
+                <span>Créateur de SSN Coaching</span>
+            </div>
+
+        </div>
+        <div class="centerHeader childHeader">
+            <div class="titleHeader">
+                <h1>SSN Coaching Challenge</h1>
+                <span>Le santé, la vitalité, pour le meilleur</span>
+            </div>
+
+            <div class="gestionUI">
+                <div class="infoUser">
+                    <p>{{ app.user.getUsername() }}</p>
+                    <p>Phase
+                        ...</p> {# inscrire la phase en cours (surement à rajoute dans la bdd et dans human, ou juste dans human en fonction de la date de création du compte) #}
+                </div>
+                <div class="linkStat">
+                    <a href="{{ path("programme_stat_evolution") }}"><p>Stats et évolution</p></a>
+                </div>
+                <div class="mail">
+                    <a href=""><p>Nos messages</p></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightHeader childHeader">
+            <div class="contentRightHeader">
+                <div class="selectLanguageContent">
+                    <div class="contentEN langageNoSelect">EN</div>
+                    <div class="contentFR langageSelect">FR</div>
+                </div>
+                <div class="contentDeco">
+                    <a href="{{ path("security_logOut") }}">Déconnexion</a>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+    <div class="break"></div>
+
+    <section>
+        <div class="containerChoice">
+            <div class="firstLineChoice">
+                <div class="imageChoice imageTraining parent">
+                    <div class="child">
+                        {% if human.isDemoAccount() == "false" %}
+                            <a href="{{ path("programme-sport-entrainements") }}">
+                                <div>
+                                    <small>Mes</small></br><span>entraînements</span>
+                                </div>
+                            </a>
+                        {% else %}
+                            <a href="{{ path("programme-sport-entrainements-demo") }}">
+                                <div>
+                                    <small>Mes</small></br><span>entraînements</span>
+                                </div>
+                            </a>
+
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="imageChoice imageMenu parent">
+                    <div class="child">
+                        {% if human.isDemoAccount() == "false" %}
+                            <a href="{{ path("programme-sport-recettes") }}">
+                                <div>
+                                    <small>Mes</small></br><span>recettes</span>
+                                </div>
+                            </a>
+                        {% else %}
+                            <a href="{{ path("programme-sport-recettes-demo") }}">
+                                <div>
+                                    <small>Mes</small></br><span>recettes</span>
+                                </div>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="imageChoice imagePlanning parent">
+                    <div class="child">
+                        {% if human.isDemoAccount() == "false" %}
+                            <a href="{{ path("programme-sport-planning") }}">
+                                <div>
+                                    <small>Mon</small></br><span>planning</span>
+                                </div>
+                            </a>
+                        {% else %}
+                            <a href="{{ path("programme-sport-planning-demo") }}">
+                                <div>
+                                    <small>Mon</small></br><span>planning</span>
+                                </div>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="secondLineChoice">
+                <div class="videoConseil">
+                    <div class="contenerLien">
+                        <a href="{{ path("programme-sport-planning") }}">
+                            <h2>Comment avoir un maximum de résultats</h2>
+                        </a>
+                    </div>
+                    <div class="contenerVideo">
+                        <video controls="controls" poster="{{ asset("image/hacker.jpg") }}">
+                            <source src="{{ asset("video/videohack.mp4") }}" type="video/mp4">
+                            Le fichier video ne peut être lu
+                        </video>
+                    </div>
+                </div>
+                <div class="imageChoice imageArticles parent">
+                    <div class="child">
+                        <a href="{{ path("programme-sport-articles") }}">
+                            <div>
+                                <small>Mes</small></br><span>articles</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

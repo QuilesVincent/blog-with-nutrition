@@ -1,0 +1,144 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/training-index.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="leftHeader">
+            <div class="nameCoach childHeader">
+                <span>Vincent Quiles</span>
+                <span>Créateur de SSN Coaching</span>
+            </div>
+
+        </div>
+        <div class="centerHeader childHeader">
+            <div class="titleHeader">
+                <h1>SSN Coaching Challenge</h1>
+                <span>Le santé, la vitalité, pour le meilleur</span>
+            </div>
+
+            <div class="gestionUI">
+                <div class="infoUser">
+                    <p>{{ app.user.getUsername() }}</p>
+                    <p>Phase
+                        ...</p> {# inscrire la phase en cours (surement à rajoute dans la bdd et dans human, ou juste dans human en fonction de la date de création du compte)#}
+                </div>
+                <div class="linkStat">
+                    <a href="{{ path("programme_stat_evolution") }}"><p>Stats et évolution</p></a>
+                </div>
+                <div class="mail">
+                    <a href=""><p>Nos messages</p></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightHeader childHeader">
+            <div class="contentRightHeader">
+                <div class="selectLanguageContent">
+                    <div class="contentEN langageNoSelect">EN</div>
+                    <div class="contentFR langageSelect">FR</div>
+                </div>
+                <div class="contentDeco">
+                    <a href="{{ path("security_logOut") }}">Déconnexion</a>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+    <div class="blocPage">
+        <div class="firstLeft blockDiv"></div>
+
+        <div class="secondBlock blockDiv">
+            <div class="onglet ongletTraining">
+                <a href="">
+                    <div class="leftOnglet ongletSelected">
+                        <span class="titleOnglet">Mes training</span>
+                    </div>
+                    <div class="rightOnglet trainingRightOnglet">
+                        <div class="imgOnglet imgTrainingOnglet"></div>
+                    </div>
+
+                </a>
+            </div>
+            <div class="onglet ongletMeal">
+                {% if human.getDemoAccount() == "false" %}
+                    <a href="{{ path("programme-sport-recettes") }}">
+                        <div class="leftOnglet recetteLeftOnglet">
+                            <span class="titleOnglet">Mes recettes</span>
+                        </div>
+                        <div class="rightOnglet recetteRightOnglet">
+                            <div class="imgOnglet imgRecetteOnglet"></div>
+                        </div>
+                    </a>
+                {% else %}
+                    <a href="{{ path("programme-sport-recettes-demo") }}">
+                        <div class="leftOnglet recetteLeftOnglet">
+                            <span class="titleOnglet">Mes recettes</span>
+                        </div>
+                        <div class="rightOnglet recetteRightOnglet">
+                            <div class="imgOnglet imgRecetteOnglet"></div>
+                        </div>
+                    </a>
+                {% endif %}
+            </div>
+            <div class="onglet ongletPlanning">
+                <a href="{{ path("programme-sport-planning") }}">
+                    <div class="leftOnglet planningLeftOnglet">
+                        <span class="titleOnglet">Mon planning</span>
+                    </div>
+                    <div class="rightOnglet planningRightOnglet">
+                        <div class="imgOnglet imgPlanningOnglet"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="onglet ongletArticle">
+                <a href="{{ path("index") }}">
+                    <div class="leftOnglet articleLeftOnglet">
+                        <span class="titleOnglet">Mes articles</span>
+                    </div>
+                    <div class="rightOnglet articleRightOnglet">
+                        <div class="imgOnglet imgArticleOnglet"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <section class="thirdBlock principalBlock blockDiv">
+            <div class="titlePrincipalBlock"></div>
+            <div class="circuitSelected hidden"></div>
+            <div class="explicationPrincipalBlock"></div>
+            <div class="iconesCircuit">
+                {% for seances in programs %}
+                    {% for circuits in seances.getTraining() %}
+                        <div class="circuit parent">
+                            <a href="{{ path("programme-sport-circuit", {slug:circuits.name}) }}">
+                                <div class="child">
+                                    <div class="childImg">
+                                        <img src="{{ asset("image/training"~circuits.name~".jpg") }}">
+                                    </div>
+                                </div>
+                                <div class="childInformation">
+                                    <span class="imgCircuit imgCircuit{{ circuits.name }}"></span>
+                                    <span>Circuit{{ circuits.name }}</span>
+                                </div>
+
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </section>
+
+        <div class="firstRight lastBlock blockDiv"></div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/sport/menuIndex.js") }}"></script>
+{% endblock %}

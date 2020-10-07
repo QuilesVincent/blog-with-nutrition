@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/sport/choiceFormule.css") }}"
+{% endblock %}
+{% block javascript_head %}
+    <script src="https://js.stripe.com/v3/"></script>
+*{% endblock %}
+
+{% block body %}
+
+    <header>alloo</header>
+    <section class="panier">
+        <div class="productSelected">
+            <p>{{ product.getTitle() }}</p>
+            <p>{{ product.getImage() }}</p>
+            <p>{{ product.getPrice() }} €</p>
+
+            <p>{{ app.session.get("panier")[product.getId()] }}</p>
+        </div>
+    </section>
+
+    <section class="payment">
+        <form method="post" id="payment-form">
+            <script src="https://checkout.stripe.com/checkout.js"
+            class="stripe-button"
+            data-key="pk_test_51GsTPmKLPfQ86kQCkcPb4fiGyFCecJFjFTFAh7RG1hkuvBadMgR3mRUatH6nCgmj2ojoWi594Iuv3dEmOrAIUebc00rabCoI8r" data-description="Access for a year"
+            data-amount="{{ product.getPrice()*100 }}" data-locale="auto" data-currency="eur" data_secret="{{ intent.client_secret }}"></script>
+        </form>
+    </section>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/training-index-planning-javascript.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/sport/trainingIndexPlanningJavascript.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="blocPage">
+        <div class="firstBlock blockDiv">
+            <div class="leftFirstBlock">
+                <p>Choisis l'entrainement pour la journée selectionné</p>
+            </div>
+        </div>
+
+        <div class="secondBlock blockDiv blockPhase">
+            <div class="phase1 phaseTitle">
+                <h2>Phase 1</h2>
+            </div>
+            <div class="phase2 phaseTitle">
+                <h2>Phase 2</h2>
+            </div>
+            <div class="phase3 phaseTitle">
+                <h2>Phase 3</h2>
+            </div>
+            <div class="emptySpace"></div>
+        </div>
+
+        <section class="thirdBlock principalBlock blockDiv">
+            <div class="iconesCircuit">
+                {% for seances in programs %}
+                    {% for circuits in seances.getTraining() %}
+                        <div class="circuit parent circuitClick">
+                            <div class="childInformation">
+                                <span class="{{ circuits.getType }} {{ circuits.getTime }} {{ circuits.getIntensity() }}">{{ circuits.name }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <div class="circuit parent circuitClick">
+                    <div class="childInformation">
+                        <span>Repos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="firstRight lastBlock blockDiv"></div>
+    </div>
+
+
+
+{% endblock %}
+

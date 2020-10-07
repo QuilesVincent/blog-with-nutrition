@@ -1,0 +1,314 @@
+{% extends "base.html.twig" %}
+
+{% block javascript_head %}
+    <script src="{{ asset("javascript/sport/home.js") }}"></script>
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/allPrograms.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="blocPage">
+
+        <div class="firstLeft blockDiv">
+            <div class="contentCircleLogo">
+                <div class="divContentCircleLogo">
+                    <a href="{{ path("programme_page_programs") }}" class="circleLogo"></a>
+                </div>
+
+            </div>
+            <div class="contentAllOnglet">
+                <div class="onglet ongletTraining">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-entrainements") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-entrainements-demo") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletMeal">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-recettes") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-recettes-demo") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletPlanning">
+                    <a href="{{ path("programme-sport-planning") }}">
+                        <div class="leftOnglet planningLeftOnglet">
+                            <div class="imgOnglet imgPlanningOnglet"></div>
+                        </div>
+                        <div class="rightOnglet planningRightOnglet">
+                            <span class="titleOnglet">Mon planning</span>
+                        </div>
+
+                    </a>
+                </div>
+                <div class="onglet ongletArticle">
+                    <a href="{{ path("index") }}">
+                        <div class="leftOnglet articleLeftOnglet">
+                            <div class="imgOnglet imgArticleOnglet"></div>
+                        </div>
+                        <div class="rightOnglet articleRightOnglet">
+                            <span class="titleOnglet">Mes articles</span>
+                        </div>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="secondBlock blockDiv">
+            <div class="principalPage">
+                <section class="firstBlockPrincipalPage">
+                    <div class="contentFirstBlockPrincipalPage">
+                        <div class="userInfoDayTraining">
+                            <div class="divPictureDayTraining">
+                                <div class="divContentDivTextInImage">
+                                    <div class="divContentText1">
+                                        <!--Mettre un sigle style oeil egyptien-->
+                                        <p class="nameDivPictureDayTraining">Entraînement du jour</p>
+                                    </div>
+                                    <div class="divContentDivText2And3">
+                                        <div class="divContentText2">
+                                            <p class="paraphTimeSeance"></p>
+                                        </div>
+                                        <div class="divContentText3">
+                                            <p class="paraphIntesitySeance">Intensity</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="infoDayTraining">
+                                <p class="paraphTypeSeance"></p>
+                                <p class="paraphNameSeance"></p>
+                            </div>
+
+                        </div>
+                        <div class="weekTrainingObjective">
+                            <div class="leftWeekTrainingObjective">
+                                <div class="divContentDivInformation">
+                                    <div class="contentNumberSeance">
+                                        <p>Nombre de séances</p>
+                                    </div>
+
+                                    <div class="divContentChoiceWeekOrMonth">
+                                        <div class="contentChoiceWeek">
+                                            <p>Semaine</p>
+                                        </div>
+                                        <div class="contentChoiceMonth">
+                                            <p>Mois</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="contentTimeBeforeFinishWeekOrMonth">
+                                        <p>2 j 13h 45 min</p>
+                                    </div>
+
+                                    <div class="NumberSeanceDoneOnTheObjective">
+                                        <p>X séances effectués</p>
+                                        <p>sur X séances prévu</p>
+                                    </div>
+
+                                    <div class="divContentPourcentageDone">
+                                        <div class="contentPourcentageDone">
+                                            <p>+ X %</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="rightWeekTrainingObjective">
+                                <div class="externeCircleContentCanvas">
+                                    <canvas class="round1" data-percent="80" data-color="#00BCD4">
+                                    </canvas>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="secondBlockPrincipalPage">
+                    <div class="contentSecondBlockPrincipalPage">
+                        <div class="textRecommandation">
+                            <p>Recommander pour toi</p>
+                        </div>
+                        <div class="advice advice1">
+                            <div class="pictureRecipe advicePicture">
+                                <img src="{{ asset('image/'~weekRecipe.getPathLogo()) }}"
+                                     alt="image de la recette de la semaine">
+                            </div>
+                            <div class="infoRecipe adviceTextContent">
+                                <p>Recette de la semaine</p>
+                                <p>{{ weekRecipe.getName() }}</p>
+                            </div>
+                        </div>
+                        <div class="advice advice2 newWeekRecipe">
+                            <div class="pictureRecipe advicePicture">
+                                <img src="{{ asset('image/'~weekRecipe.getPathLogo()) }}"
+                                     alt="image de la recette de la semaine">
+                            </div>
+                            <div class="infoRecipe adviceTextContent">
+                                <p>Recette de la semaine</p>
+                                <p>{{ weekRecipe.getName() }}</p>
+                            </div>
+                        </div>
+                        <div class="advice advice3">
+                            <div class="pictureRecipe advicePicture">
+                                <img src="{{ asset('image/'~weekRecipe.getPathLogo()) }}"
+                                     alt="image de la recette de la semaine">
+                            </div>
+                            <div class="infoRecipe adviceTextContent">
+                                <p>Recette de la semaine</p>
+                                <p>{{ weekRecipe.getName() }}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="thirdBlock principalBlock blockDiv">
+            <div class="profilZone">
+                <div class="divContentCircleProfilZone">
+                    <div class="imgProfilZone"></div>
+                    <p>Mon profil</p>
+                </div>
+            </div>
+            <div class="userInfoPlanning">
+                <div class="dateDayActually">
+                    <p>{{ "now"|date("m/d/Y", "Europe/Paris") }}</p>
+                </div>
+                <div class="divUserInfoPlanning trainingDayActually">
+                    <div class="zoneDivContentIcone">
+                        <div class="contentIcone"></div>
+                    </div>
+                    <div class="zoneDivInfoAndLink">
+                        <div class="zoneDivContentName">
+                            <div class="divContentName divContentNameTrainingDayActually">
+                                <p>Entraînement non définis</p>
+                            </div>
+                        </div>
+                        <div class="zoneDivContentTimeAndLink">
+                            <div class="divContentTime">
+                                <p></p>
+                            </div>
+                            <div class="divContentLink">
+                                <a></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divUserInfoPlanning breakfastDayActually">
+                    <div class="zoneDivContentIcone">
+                        <div class="contentIcone"></div>
+                    </div>
+                    <div class="zoneDivInfoAndLink">
+                        <div class="zoneDivContentName">
+                            <div class="divContentName divContentNameBreakfastDayActually">
+                                <p>Ptit déjeuner non définis</p>
+                            </div>
+                        </div>
+                        <div class="zoneDivContentTimeAndLink">
+                            <div class="divContentTime">
+                                <p></p>
+                            </div>
+                            <div class="divContentLink">
+                                <a></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divUserInfoPlanning firstMealDayActually">
+                    <div class="zoneDivContentIcone">
+                        <div class="contentIcone"></div>
+                    </div>
+                    <div class="zoneDivInfoAndLink">
+                        <div class="zoneDivContentName">
+                            <div class="divContentName divContentNameFirstMealDayActually">
+                                <p>Déjeuner non choisis</p>
+                            </div>
+                        </div>
+                        <div class="zoneDivContentTimeAndLink">
+                            <div class="divContentTime">
+                                <p></p>
+                            </div>
+                            <div class="divContentLink">
+                                <a></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divUserInfoPlanning secondMealDayActually">
+                    <div class="zoneDivContentIcone">
+                        <div class="contentIcone"></div>
+                    </div>
+                    <div class="zoneDivInfoAndLink">
+                        <div class="zoneDivContentName">
+                            <div class="divContentName divContentNameSecondMealDayActually">
+                                <p>Dîner non définis</p>
+                            </div>
+                        </div>
+                        <div class="zoneDivContentTimeAndLink">
+                            <div class="divContentTime">
+                                <p></p>
+                            </div>
+                            <div class="divContentLink">
+                                <a></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divContentdivSeePlanning">
+                    <div class="contentButtonToSeePlanning">
+                        <a href="{{ path("programme-sport-planning") }}">Mon Planning</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

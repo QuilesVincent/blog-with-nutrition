@@ -1,0 +1,217 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/menuIndex.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="blocPage">
+        <div class="firstLeft blockDiv">
+            <div class="contentCircleLogo">
+                <div class="divContentCircleLogo">
+                    <a href="{{ path("programme_page_programs") }}" class="circleLogo"></a>
+                </div>
+
+            </div>
+            <div class="contentAllOnglet">
+                <div class="onglet ongletTraining">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-entrainements") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-entrainements-demo") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletMeal">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-recettes") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-recettes-demo") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletPlanning">
+                    <a href="{{ path("programme-sport-planning") }}">
+                        <div class="leftOnglet planningLeftOnglet">
+                            <div class="imgOnglet imgPlanningOnglet"></div>
+                        </div>
+                        <div class="rightOnglet planningRightOnglet">
+                            <span class="titleOnglet">Mon planning</span>
+                        </div>
+
+                    </a>
+                </div>
+                <div class="onglet ongletArticle">
+                    <a href="{{ path("index") }}">
+                        <div class="leftOnglet articleLeftOnglet">
+                            <div class="imgOnglet imgArticleOnglet"></div>
+                        </div>
+                        <div class="rightOnglet articleRightOnglet">
+                            <span class="titleOnglet">Mes articles</span>
+                        </div>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="secondBlock principalBlock blockDiv">
+            <div class="filtresPrincipalBlock">
+                <div class="titlePrincipalBlock"><p>Mes recettes</p></div>
+                <div class="divContentAllFiltres">
+                    <div class="contentFiltre contentFiltreBreakfast">
+                        <p>Breakfast</p>
+                    </div>
+                    <div class="contentFiltre contentFiltreLowCarb">
+                        <p>LowCarb</p>
+                    </div>
+                    <div class="contentFiltre contentFiltreHightCarb">
+                        <p>HightCarb</p>
+                    </div>
+                    <div class="contentFiltre contentFiltreSnack">
+                        <p>Snack</p>
+                    </div>
+                    <div class="contentFiltre contentFiltreCheatMeal">
+                        <p>CheatMeal</p>
+                    </div>
+                </div>
+            </div>
+            <div class="iconesCircuit">
+                {% for recetteBreakfast in recettesBreakfast %}
+                    <div class="circuit parent {{ recetteBreakfast.getDiet()[0] }} {{ recetteBreakfast.getType() }}">
+                        <a class="lienScreenRecette"
+                           href="{{ path("programme-sport-recetteSelected", {slug:recetteBreakfast.getNameClass(), slugType:recetteBreakfast.getType()}) }}">
+                            <div class="child">
+                                <div class="childImg">
+                                    <img src="{{ asset("image/"~recetteBreakfast.getPathLogo()) }}">
+                                </div>
+                            </div>
+                            <div class="childInformation">
+                                <div class="textContentTypeCircuit">
+                                    <span>{{ recetteBreakfast.getName() }}</span>
+                                    <p>Un mélange de douceur et de saveur</p>
+                                    <p>Naturellement petillant et doux en bouche</p>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+
+                {% for recetteLowCarb in recettesLowCarb %}
+                    <div class="circuit parent {{ recetteLowCarb.getDiet()[0] }} {{ recetteLowCarb.getType() }}">
+                        <a class="lienScreenRecette"
+                           href="{{ path("programme-sport-recetteSelected", {slug:recetteLowCarb.getNameClass(), slugType:recetteLowCarb.getType()}) }}">
+                            <div class="child">
+                                <div class="childImg">
+                                    <img src="{{ asset("image/"~recetteLowCarb.getPathLogo()) }}">
+                                </div>
+                            </div>
+                            <div class="childInformation">
+                                <div class="textContentTypeCircuit">
+                                    <span>{{ recetteLowCarb.getName() }}</span>
+                                    <p>Un mélange de douceur et de saveur</p>
+                                    <p>Naturellement petillant et doux en bouche</p>
+                                </div>
+
+                            </div>
+
+                        </a>
+                    </div>
+                {% endfor %}
+
+                {% for recetteHightCarb in recettesHightCarb %}
+                    <div class="circuit parent {{ recetteHightCarb.getDiet()[0] }}  {{ recetteHightCarb.getType() }}">
+                        <a class="lienScreenRecette"
+                           href="{{ path("programme-sport-recetteSelected", {slug:recetteHightCarb.getNameClass(), slugType:recetteHightCarb.getType()}) }}">
+                            <div class="child">
+                                <div class="childImg">
+                                    <img src="{{ asset("image/"~recetteHightCarb.getPathLogo()) }}">
+                                </div>
+
+                            </div>
+
+                            <div class="childInformation">
+                                <div class="textContentTypeCircuit">
+                                    <span>{{ recetteHightCarb.getName() }}</span>
+                                    <p>Un mélange de douceur et de saveur</p>
+                                    <p>Naturellement petillant et doux en bouche</p>
+                                </div>
+
+                            </div>
+                        </a>
+
+                    </div>
+                {% endfor %}
+
+                {% for recetteSnack in recettesSnack %}
+                    <div class="circuit parent {{ recetteSnack.getDiet()[0] }}  {{ recetteSnack.getType() }}">
+                        <a class="lienScreenRecette"
+                           href="{{ path("programme-sport-recetteSelected", {slug:recetteSnack.getNameClass(), slugType:recetteSnack.getType()}) }}">
+                            <div class="child">
+                                <div class="childImg">
+                                    <img src="{{ asset("image/"~recetteSnack.getPathLogo()) }}">
+                                </div>
+                                <div class="divContenerTitleRecipe">
+                                    <p>{{ recetteSnack.getName() }}</p>
+                                </div>
+                            </div>
+                            <div class="childInformation">
+                                <div class="textContentTypeCircuit">
+                                    <span>{{ recetteSnack.getName() }}</span>
+                                    <p>Un mélange de douceur et de saveur</p>
+                                    <p>Naturellement petillant et doux en bouche</p>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+                    </div>
+
+                {% endfor %}
+            </div>
+
+
+        </section>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/sport/menuIndex.js") }}"></script>
+{% endblock %}

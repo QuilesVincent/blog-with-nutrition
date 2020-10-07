@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Bienvenido {{ app.user.getUsername()}} </h1>
+    <p>{{ app.user.getTypeCompte() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[0].getExercices()[0].getLevel() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[0].getExercices()[0].getNumberOfReps() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[0].getExercices()[1].getNumberTime() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[0].getExercices()[2].getNumberOfReps() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[1].getExercices()[0].getNumberOfReps() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[1].getExercices()[1].getNumberTime() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[1].getExercices()[2].getNumberOfReps() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[1].getExercices()[3].getNumberOfReps() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[2].getExercices()[0].getNumberOfReps() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[2].getExercices()[1].getNumberOfReps() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[2].getExercices()[2].getNumberOfReps() }}</p>
+    <p>{{ programme.getBeginnerCardioTraining.getCircuits()[2].getExercices()[3].getNumberOfReps() }}</p>
+
+{% endblock %}

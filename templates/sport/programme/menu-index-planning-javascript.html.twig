@@ -1,0 +1,127 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/training-index-planning-javascript.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+
+
+        /**
+         * Add a condition, if the window is closed by click on the cross of this window
+         * if it's done, selec element that contains the class "caseSelected" on the windowOpener as the function Reporter and remove this class
+         */
+
+        /**
+         * The both button to say yes or no if the meal is a meal post training
+         * @type {Element}
+         */
+        let buttonNoMealPostTraining = document.getElementsByClassName("buttonNoPostTraining")[0];
+        let buttonYesMealPostTraining = document.getElementsByClassName("buttonYesPostTraining")[0];
+
+        /**
+         * The contener of all the recettes (important because it's hidden if the meal is the lunch or dinner)
+         * @type {Element}
+         */
+        let recettes = document.getElementsByClassName("iconesCircuit")[0];
+
+        /**
+         * To select the good recettes for the lunch and dinner
+         * @type {HTMLCollectionOf<Element>}
+         */
+        let recettesHightCarb = document.getElementsByClassName("HightCarb");
+        let recettesLowCarb = document.getElementsByClassName("LowCarb");
+
+        /**
+         * The contener to display the question meal and the button yes and no
+         * After click, we hidden
+         * @type {Element}
+         */
+        let contenerQuestionMeal = document.getElementsByClassName("contenerQuestion")[0];
+
+        /**
+         * If click on the button no, we display only the lowcarb recipes
+         */
+        buttonNoMealPostTraining.addEventListener("click", (e) => {
+            recettes.classList.remove("hidden");
+            contenerQuestionMeal.classList.add("hidden");
+            for (let i = 0; i < recettesHightCarb.length; i++) {
+                recettesHightCarb[i].classList.add("hidden");
+            }
+        })
+
+        /**
+         * If click on the button no, we display only the hightCarb recipes
+         */
+        buttonYesMealPostTraining.addEventListener("click", (e) => {
+            recettes.classList.remove("hidden");
+            contenerQuestionMeal.classList.add("hidden");
+            for (let i = 0; i < recettesLowCarb.length; i++) {
+                recettesLowCarb[i].classList.add("hidden");
+            }
+        })
+    </script>
+    <script src="{{ asset("javascript/sport/trainingIndexPlanningJavascript.js") }}"></script>
+{% endblock %}
+
+
+{% block body %}
+    <div class="blocPage">
+        <div class="firstBlock blockDiv">
+            <div class="leftFirstBlock">
+                <p>Choisis la recette pour la journée selectionné</p>
+            </div>
+        </div>
+
+        <div class="secondBlock blockDiv blockPhase">
+            <div class="phase1 phaseTitle">
+                <h2>Phase 1</h2>
+            </div>
+            <div class="phase2 phaseTitle">
+                <h2>Phase 2</h2>
+            </div>
+            <div class="phase3 phaseTitle">
+                <h2>Phase 3</h2>
+            </div>
+            <div class="emptySpace"></div>
+        </div>
+
+        {% if (app.request.get("id") == "breakfast") %}
+            {% set recettes = breakfast %}
+        {% elseif (app.request.get("id") == "meal") %}
+            {% set recettes = meal %}
+        {% elseif (app.request.get("id") == "snack") %}
+            {% set recettes = snack %}
+        {% endif %}
+        <section class="thirdBlock principalBlock blockDiv">
+            {% if(app.request.get("id") == "meal") %}
+            <div class="contenerQuestion">
+                <p>Est ce un repas post entraînement ?</p>
+                <button class="buttonYesPostTraining">Oui</button>
+                <button class="buttonNoPostTraining">Non</button>
+            </div>
+            <div class="iconesCircuit hidden">
+                {% else %}
+                <div class="iconesCircuit">
+                    {% endif %}
+                    {% for recette in recettes %}
+                        <div class="circuit parent circuitClick {{ recette.getType() }}">
+                            <div class="childInformation {{ recette.getType() }}">
+                                <span>{{ recette.name }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+        <div class="firstRight lastBlock blockDiv"></div>
+    </div>
+
+
+{% endblock %}
+
+
+

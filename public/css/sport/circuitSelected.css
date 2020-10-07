@@ -1,0 +1,331 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+@font-face {
+    font-family: 'GilroyBold';
+    src: url('../police/Gilroy-ExtraBold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GilroyLight';
+    src: url('../police/Gilroy-Light.otf') format('truetype');
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FFF7F5
+}
+
+.blocPage {
+    height: 99.7%;
+    width: 100%;
+    display: flex;
+}
+
+.firstLeft {
+    width: 19.5%;
+    height: 100%;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 0 45px 45px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentCircleLogo {
+    height: 25%;
+}
+
+.divContentCircleLogo {
+    height: 50px;
+    width: 50px;
+    margin: 7% 0 0 52%;
+}
+
+.circleLogo {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.contentAllOnglet {
+    height: 70%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+.onglet {
+    width: 100%;
+    height: 8.5%;
+    margin-bottom: 20%;
+    display: flex;
+}
+
+.onglet a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
+
+.leftOnglet {
+    width: 23.5%;
+}
+
+.imgOnglet {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.rightOnglet {
+    width: 65%;
+    margin-left: 4%;
+    display: flex;
+    align-items: center;
+}
+
+.principalBlock {
+    width: 46.5%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    margin: 2% 4.4% 0 4.4%;
+}
+
+
+.iconesCircuit {
+    height: 302px;
+    width: 77%;
+    border-radius: 30px;
+    box-shadow: 0 30px 40px rgba(0,35,70, 0.15);
+}
+
+.nameCircuitVideo {
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    margin-top: 13%;
+    margin-left: 2%;
+    z-index: 100;
+}
+
+.nameCircuitVideo p {
+    font-family: GilroyBold, sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 37px;
+}
+
+.videoTraining {
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 30px 40px rgba(0,35,70, 0.15);
+}
+
+
+.iconesCircuit video {
+    min-width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 30px 40px rgba(0,35,70, 0.15);
+}
+
+.divContenerPdfAndPodcast {
+    width: 77%;
+    height: 13%;
+    margin-top : 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.podcastCircuit {
+    width: 65%;
+    height: 65%;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.podcastCircuit audio {
+    width: 100%;
+    height: 100%;
+
+}
+
+.divContenerPdf {
+    width: 25%;
+    height: 65%;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+}
+
+.divContenerPdf p {
+    width: 80%;
+    height: 72%;
+    background-color: #5be497;
+    border-radius: 50px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.explicationPrincipalBlock > p {
+    padding: 0;
+    margin: 5px 0 5px 0;
+}
+
+.explicationPrincipalBlock {
+    height: 30%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.divContentAllDivExplication {
+    width: 67%;
+    height: 60%;
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.explicationContent {
+    width: fit-content;
+    height: fit-content;
+
+}
+.explicationContent p {
+    margin: 0;
+    padding: 15px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    border: 1px solid rgba(0,35,70, 0.15);
+    box-shadow: 0 3px 5px rgba(0, 35, 70, 0.10);
+}
+
+.thirdBlock {
+    width: 25.2%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blockCircuit {
+    width: 73%;
+    height: 75%;
+    background: #FFFFFF;
+    border: 1px solid rgba(0,35,70, 0.15);
+    box-shadow: 0 3px 5px rgba(0, 35, 70, 0.10);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numberLap {
+    height: fit-content;
+    margin-top: 10%;
+
+}
+
+.numberLap p {
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+}
+
+.lineAndExercices {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.divContentLineWithPoint {
+    width: 10%;
+}
+
+.divContentAllExercices {
+    height: 90%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.contentExerciceAndTime {
+    height: fit-content;
+    width: fit-content;
+}
+
+
+.nameExercice {
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+}
+
+.timeExercice {
+    margin: 0;
+    padding: 0;
+}
+
+.addToPlaning {
+    width: 73%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addToPlaning p {
+    padding: 6px 9px;
+    border-radius: 7px;
+    background-color: #5be497;
+    color: white;
+    border: 1px solid rgba(0,35,70, 0.15);
+    box-shadow: 0 3px 5px rgba(0, 35, 70, 0.10);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

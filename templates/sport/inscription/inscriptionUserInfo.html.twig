@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/accueil.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="nameAndLogo"></div>
+        <div class="fewThemes">
+            <p>Nutritions</p>
+            <p>HIIT</p>
+            <p>Yoga</p>
+            <p>Circuit Training</p>
+            <p>Stretching</p>
+        </div>
+        <div class="contentInscriptionConnexion">
+            <div class="connexionButton">
+                <p>Se connecter</p>
+            </div>
+            <div class="inscriptionButton">
+                <p>S'inscrire</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="formInscription">
+        <div class="formDiv">
+            {{ form_start(form, {"attr": {"class": "form_inscr"}}) }}
+            <div class="firstNameContent divInput">
+                {{ form_widget(form.firstname) }}
+            </div>
+            <div class="lastnameContent divInput">
+                {{ form_widget(form.lastname) }}
+            </div>
+            <div class="usernameContent divInput">
+                {{ form_widget(form.username) }}
+            </div>
+            {{ form_widget(form.password) }}
+            <div class="secretQuestionContent divInput">
+                {{ form_row(form.secretQuestion) }}
+            </div>
+            <div class="secretQuestionAnswerContent divInput">
+                {{ form_widget(form.secretQuestionAnswer) }}
+            </div>
+            <div class="connexion">
+                <input type="submit" value="S'inscrire">
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </section>
+
+
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

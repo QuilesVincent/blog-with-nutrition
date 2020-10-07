@@ -1,0 +1,104 @@
+programme_sport_accueil:
+  path : /sport/programme/accueil
+  controller: App\Domain\Sport\Controller\Accueil
+
+programme_sport_inscription_utilisateur:
+  path: /sport/programme/inscription-utilisateur
+  controller: App\Domain\Sport\Controller\InscriptionUserInfo
+
+programme_sport_connexion:
+  path: /sport/programme/connexion
+  controller: App\Domain\Sport\Controller\ConnexionProgramme
+
+programme_sport_choice_formule:
+  path: /sport/programme/choice-formule
+  controller: App\Domain\Sport\Controller\ChoiceFormule
+
+programme_sport_paiement-control:
+  path: /sport/programme/paiement-control-product-{id}
+  controller: App\Domain\Sport\Controller\PaiementControl
+
+programme_sport_inscription:
+  path: /sport/programme/inscription
+  controller: App\Domain\Sport\Controller\InscriptionProgramme
+
+programme_stat_evolution:
+  path: /sport/programme/stat-evolution
+  controller: App\Domain\Sport\Controller\StatEvolutionAfficher
+
+programme_first_page_sport:
+  path: /sport/programme/beginning
+  controller: App\Domain\Sport\Controller\BeginningSport
+
+programme_page_programs:
+  path: /sport/programme/programs
+  controller: App\Domain\Sport\Controller\PageProgramme
+
+programme-sport-entrainements:
+  path: /sport/programme/tes-entrainements
+  controller: App\Domain\Sport\Controller\TrainingIndex
+
+programme-sport-entrainements-demo:
+  path: /sport/programme/tes-entrainements-demo
+  controller: App\Domain\Sport\Controller\TrainingIndexDemo
+
+programme-sport-recettes:
+  path: /sport/programme/tes-recettes
+  controller: App\Domain\Sport\Controller\MenuIndex
+
+programme-sport-recettes-demo:
+  path: /sport/programme/tes-recettes-demo
+  controller: App\Domain\Sport\Controller\MenuIndexDemo
+
+programme-sport-recetteSelected:
+  path: /sport/programme/recette/{slug}-{slugType}
+  controller: App\Domain\Sport\Controller\MenuSelected
+
+programme-sport-planning:
+  path: /sport/programme/ton-planning
+  controller: App\Domain\Sport\Controller\PlanningAfficher
+
+programme-sport-planning-demo:
+  path: /sport/programme/ton-planning
+  controller: App\Domain\Sport\Controller\PlanningAfficher
+
+programme-sport-save-planning-js:
+  path: /sport/programme/save-planning-js
+  controller: App\Domain\Sport\Controller\SaveNewPlanningJS
+  methods: POST
+
+programme-sport-get-planning-js:
+  path: /sport/programme/planning-js
+  controller: App\Domain\Sport\Controller\PlanningJS
+
+programme-sport-planning-programme:
+  path: /sport/programme/planning-programme
+  controller: App\Domain\Sport\Controller\TrainingIndexPlanningJavascript
+
+programme-sport-planning-food:
+  path: /sport/programme/planning-food-{id}
+  controller: App\Domain\Sport\Controller\FoodIndexPlanningJavascript
+
+programme-sport-articles:
+  path: /sport/programme/articles
+  controller: App\Domain\Sport\Controller\ArticlesIndex
+
+programme_sport_control_first_week:
+  path: /sport/programme/first-week-control
+  controller: App\Domain\Sport\Controller\FirstWeekControl
+
+programme_sport_week_2:
+  path: /sport/programme/week-2
+  controller: App\Domain\Sport\Controller\SportWeek2
+
+programme-sport-circuit:
+  path: /sport/programme/circuit/{slug}
+  controller: App\Domain\Sport\Controller\CircuitSelected
+
+test-sport-alim:
+  path: /sport/programme/testAlim
+  controller: App\Domain\Sport\Controller\TestRecette
+
+change-date-control-no-javascript:
+  path: /sport/programme/weekControlChangeDate-javascript
+  controller: App\Domain\Sport\Controller\WeekControlChangeDateNextControlAfterNo

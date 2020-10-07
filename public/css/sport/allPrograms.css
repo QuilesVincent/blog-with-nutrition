@@ -1,0 +1,456 @@
+html {
+    height: 100%;
+}
+
+@font-face {
+    font-family: 'GilroyBold';
+    src: url('../police/Gilroy-ExtraBold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GilroyLight';
+    src: url('../police/Gilroy-Light.otf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #FFF7F5;
+    font-family: GilroyLight, sans-serif;
+    color: #002346;
+}
+
+
+
+.blocPage {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.firstLeft {
+    width: 12%;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 0 45px 45px 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 0 5px #efe9e9;
+}
+
+.contentCircleLogo {
+    height: 25%;
+}
+
+.divContentCircleLogo {
+    height: 44%;
+    width: 32%;
+    margin: 7% 0 0 52%;
+}
+
+.circleLogo {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+
+.contentAllOnglet {
+    height: 70%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+.onglet {
+    width: 100%;
+    height: 8.5%;
+    margin-bottom: 20%;
+    display: flex;
+}
+
+.onglet a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
+
+.leftOnglet {
+    width: 23.5%;
+}
+
+.imgOnglet {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.rightOnglet {
+    width: 65%;
+    margin-left: 4%;
+    display: flex;
+    align-items: center;
+}
+
+
+.secondBlock {
+    width: 57.5%;
+}
+
+
+.principalPage {
+    height: 100%;
+    width: 100%;
+    display: flex;
+
+}
+
+.firstBlockPrincipalPage, .secondBlockPrincipalPage {
+    height: 100%;
+    display: flex;
+}
+
+.contentFirstBlockPrincipalPage, .contentSecondBlockPrincipalPage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentFirstBlockPrincipalPage {
+    margin-left: 5%;
+}
+
+.firstBlockPrincipalPage {
+    width: 65%;
+    margin-left: 3%;
+}
+
+.userInfoDayTraining {
+    height: 39.5%;
+    width: 98%;
+    margin-top: 17%;
+    background: #FFFFFF;
+    border: 1px solid rgba(0,35,70, 0.1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3px 5px rgba(0,35,70, 0.04)
+}
+
+
+.infoDayTraining {
+    height: 30%;
+    width: 100%;
+}
+
+.divPictureDayTraining {
+    height: 70%;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+}
+
+.divContentDivTextInImage {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.divContentText1 {
+    width: 85%;
+    margin: 10% 0 0 10%;
+    height: content-box;
+    background-color: #FFFFFF;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divContentText1 p {
+    margin: 0;
+    padding: 7px 10px;
+    font-size: 12px ;
+    font-family: GilroyBold, sans-serif;
+}
+
+.divContentDivText2And3 {
+    height: content-box;
+    width: 85%;
+    margin: 0 0 3% 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.divContentText2, .divContentText3 {
+    height: content-box;
+    width: content-box;
+    color: #FFFFFF;
+}
+
+.divContentText2 p::before {
+    content: "";
+    display: block;
+    background: url("../../image/horloge1.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0 6px 0 0;
+}
+
+.weekTrainingObjective {
+    height: 35%;
+    width: 98%;
+    margin-top: 11.5%;
+    background: #FFFFFF;
+    border-radius: 15px;
+    display: flex;
+    box-shadow: 0 3px 5px rgba(0,35,70, 0.15);
+    border: 1px solid rgba(0,35,70, 0.1);
+}
+
+.leftWeekTrainingObjective {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.divContentDivInformation {
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.divContentDivInformation > div {
+    height: 15%;
+}
+.contentNumberSeance {
+    margin: 5% 0 3% 0;
+}
+
+.contentNumberSeance p {
+    padding: 0;
+    margin: 0;
+}
+
+.divContentChoiceWeekOrMonth {
+    display: flex;
+}
+
+.divContentChoiceWeekOrMonth > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentChoiceMonth {
+    margin-left: 5%;
+}
+
+.divContentChoiceWeekOrMonth div p {
+    border: 1px solid #545b62;
+    border-radius: 9px;
+}
+
+.contentChoiceMonth p {
+    padding: 8px 13px;
+}
+
+.contentChoiceWeek p {
+    padding: 8px;
+}
+
+.NumberSeanceDoneOnTheObjective p {
+    padding: 0;
+    margin: 0;
+}
+
+
+.contentPourcentageDone {
+    width: fit-content;
+}
+
+.contentPourcentageDone p {
+    padding: 0 7px;
+    border-radius: 4px;
+    background-color: #5ae596;
+}
+
+.externeCircleContentCanvas {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    background-color: #e3e6ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.round1 {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+}
+
+.rightWeekTrainingObjective {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.externeCircle {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    border: 1px solid black;
+    background: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.internCircle {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    border: 1px solid black;
+    background: white;
+}
+
+.secondBlockPrincipalPage {
+    width: 35%;
+    margin-left: 4.4%;
+}
+
+.textRecommandation {
+    margin-top: 15%;
+    margin-bottom : 5%;
+}
+
+.textRecommandation p {
+    padding: 0;
+    margin: 0;
+    font-family: GilroyBold, sans-serif;
+}
+
+.advice {
+    height: 25%;
+    width: 87%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.pictureRecipe {
+    height: 67%;
+
+}
+
+.pictureRecipe img {
+    max-height: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,35,70, 0.15)
+}
+
+.adviceTextContent {
+    margin-top: 9px;
+}
+.adviceTextContent p {
+    margin: 0;
+    padding: 0;
+}
+
+.thirdBlock {
+    width: 30.5%;
+    background: #FFFFFF;
+    border-radius: 93px 0 0 93px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profilZone {
+    height: 30%;
+    width: 100%;
+}
+
+.divContentCircleProfilZone {
+    height: 75%;
+    width: 75%;
+    margin-top: 9%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imgProfilZone {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    background: black;
+}
+
+.divContentCircleProfilZone p {
+    padding: 0;
+    margin: 10px 0 0 0;
+    text-decoration: underline;
+}
+
+.userInfoPlanning {
+    height: 60%;
+    width: 80%;
+    margin-left: 13%;
+    display: flex;
+    flex-direction: column;
+}
+.divUserInfoPlanning {
+    height:15%;
+    width: 73%;
+    margin-bottom : 3%;
+    background-color: #FFFFFF;
+    border-radius: 9px;
+    box-shadow: 0 3px 5px rgba(0,35,70, 0.15);
+    border: 1px solid rgba(0,35,70, 0.1);
+}
+
+.divContentdivSeePlanning {
+    height: 10%;
+    width: 73%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentButtonToSeePlanning {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentButtonToSeePlanning a {
+    padding: 3px 15px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 7px;
+
+}
+

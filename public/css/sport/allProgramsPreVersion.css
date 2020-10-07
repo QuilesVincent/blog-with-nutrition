@@ -1,0 +1,229 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: url("../../image/mer-ConvertImage.jpg") no-repeat;
+    background-size: 100% 100%;
+    height: 290px;
+    display: flex;
+}
+.leftHeader, .rightHeader {
+    width: 22%;
+}
+.centerHeader {
+    width: 56%;
+    align-items: center;
+}
+
+.childHeader, .contentRightHeader, .titleHeader {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.leftHeader span {
+    margin : 3% 0 0 7%;
+    font-size: 25px;
+}
+
+.centerHeader h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.centerHeader span {
+    text-align: center;
+    color: grey;
+}
+
+.gestionUI {
+    width: 80%;
+    margin-top: 6%;
+    display: flex;
+    justify-content: center;
+}
+.gestionUI > div {
+    width: 30%;
+}
+
+.infoUser {
+    background: linear-gradient(to right, rgb(239, 13, 42), rgba(255, 0, 0, 0.56), rgba(212, 7, 87, 0.65));
+}
+
+.linkStat {
+    background: linear-gradient(to right, rgb(172, 231, 231), rgba(201, 194, 194, 0.95), rgba(205, 202, 202, 0.85));
+}
+
+.mail {
+    background: linear-gradient(to right, rgb(193, 193, 193), rgba(217, 217, 217, 0.56), rgb(255, 255, 255));
+}
+
+.infoUser p {
+    margin-left: 8%;
+}
+
+.linkStat a, .mail a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.gestionUI p, .gestionUI a {
+    font-size: 18px;
+}
+.rightHeader {
+    align-items: flex-end;
+}
+.contentRightHeader {
+    width: 40%;
+    margin-top: 3%;
+}
+.selectLanguageContent {
+    display: flex;
+    justify-content: center;
+}
+
+.selectLanguageContent > div {
+    margin: 3%;
+    width: 19%;
+    text-align: center;
+}
+
+.langageSelect {
+    background: linear-gradient(to right, rgb(239, 13, 42), rgba(255, 0, 0, 0.56), rgba(212, 7, 87, 0.65));
+}
+.langageNoSelect {
+    background: white;
+}
+.contentDeco {
+    text-align: center;
+}
+
+.contentDeco a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+.break {
+    height: 50px;
+}
+.containerChoice {
+    display: flex;
+    flex-direction: column;
+    height: 1500px;
+}
+
+.firstLineChoice, .secondLineChoice {
+    display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+    margin: auto;
+}
+
+.imageChoice {
+    width: 30%;
+    height: 500px;
+    overflow: hidden;
+
+}
+
+.child {
+    background: url("../../image/testomor.jpg") no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease;
+
+}
+.child small {
+    font-size : 27px;
+}
+.child span {
+    font-size: 35px;
+}
+
+.child span, .child small {
+    font-weight: bold;
+    font-family: Marker Felt, fantasy;
+}
+
+.child a::before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.imageChoice a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    font-size: 23px;
+    transition: all 1s;
+}
+
+.imageChoice a div {
+    position: relative;
+    top: 15%;
+    left: 10%;
+}
+
+.parent:hover .child, .parent:focus .child {
+    transform: scale(1.1);
+}
+
+
+.parent:hover .child span, .parent:focus .child span {
+    text-decoration: underline;
+}
+
+.parent:hover .child a, .parent:focus .child a {
+    color: red;
+}
+
+.parent:hover .child a:before,
+.parent:focus .child a:before {
+    display: block;
+}
+
+
+.videoConseil {
+    width : 50%;
+    height: 530px;
+    background-color: #0f6674;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenerLien {
+}
+
+.contenerVideo {
+    width: 100%;
+    height: 70%;
+}
+
+.videoConseil video {
+    width: 100%;
+    height: 100%;
+}

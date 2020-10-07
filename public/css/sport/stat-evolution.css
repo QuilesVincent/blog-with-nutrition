@@ -1,0 +1,239 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: url("../../image/mer-ConvertImage.jpg") no-repeat;
+    background-size: 100% 100%;
+    height: 290px;
+    display: flex;
+}
+.leftHeader, .rightHeader {
+    width: 22%;
+}
+.centerHeader {
+    width: 56%;
+    align-items: center;
+}
+
+.childHeader, .contentRightHeader, .titleHeader {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.leftHeader span {
+    margin : 3% 0 0 7%;
+    font-size: 25px;
+}
+
+.centerHeader h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.centerHeader span {
+    text-align: center;
+    color: grey;
+}
+.gestionUI {
+    width: 80%;
+    margin-top: 6%;
+    display: flex;
+    justify-content: center;
+}
+.gestionUI > div {
+    width: 30%;
+}
+.infoUser {
+    background: linear-gradient(to right, rgb(239, 13, 42), rgba(255, 0, 0, 0.56), rgba(212, 7, 87, 0.65));
+}
+.linkStat {
+    background: linear-gradient(to right, rgb(172, 231, 231), rgba(201, 194, 194, 0.95), rgba(205, 202, 202, 0.85));
+}
+.mail {
+    background: linear-gradient(to right, rgb(193, 193, 193), rgba(217, 217, 217, 0.56), rgb(255, 255, 255));
+}
+.infoUser p {
+    margin-left: 8%;
+}
+.linkStat a, .mail a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+.gestionUI p, .gestionUI a {
+    font-size: 18px;
+}
+.rightHeader {
+    align-items: flex-end;
+}
+.contentRightHeader {
+    width: 40%;
+    margin-top: 3%;
+}
+.selectLanguageContent {
+    display: flex;
+    justify-content: center;
+}
+
+.selectLanguageContent > div {
+    margin: 3%;
+    width: 19%;
+    text-align: center;
+}
+.langageSelect {
+    background: linear-gradient(to right, rgb(239, 13, 42), rgba(255, 0, 0, 0.56), rgba(212, 7, 87, 0.65));
+}
+.langageNoSelect {
+    background: white;
+}
+.contentDeco {
+    text-align: center;
+}
+.contentDeco a {
+    text-decoration: none;
+    color: black;
+}
+
+.blocPage {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.firstLeft {
+    width : 11%;
+}
+.secondBlock {
+    width : 17%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ongletSelected {
+    background : linear-gradient(to right, rgb(239, 13, 42), rgba(255, 0, 0, 0.56), rgba(212, 7, 87, 0.65));
+}
+
+.onglet {
+    height: 90px;
+    margin-bottom: 15px;
+    background: rgba(192, 192, 192, 0.3);
+    border-radius: 0 5px 5px 0;
+}
+
+.ongletTraining {
+    margin-top: 50px;
+}
+
+.onglet a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.leftOnglet {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rightOnglet {
+    width: 30%;
+}
+
+.phases {
+    color: black;
+    list-style-type: none;
+}
+
+.leftOnglet span {
+}
+
+.rightOnglet {
+    overflow: hidden;
+}
+
+.imgRecetteOnglet {
+    background: url("../../image/smoothie.jpeg") no-repeat;
+
+}
+.imgTrainingOnglet {
+    background: url("../../image/trainingBeginnerCircuitOne.jpg") no-repeat;
+}
+
+.imgPlanningOnglet {
+    background: url("../../image/planning.jpg") no-repeat;
+}
+
+.imgArticleOnglet {
+    background: url("../../image/hackerMiniature.jpg") no-repeat;
+}
+
+.imgOnglet {
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    border-radius: 0 5px 5px 0;
+    transition: all 1s ease;
+}
+
+.onglet:hover .imgOnglet, .onglet:focus .imgOnglet {
+    transform: scale(1.1);
+}
+.onglet:hover .leftOnglet, .onglet:focus .leftOnglet {
+    background: linear-gradient(to right, rgb(239, 13, 42), rgba(255, 0, 0, 0.56), rgba(212, 7, 87, 0.65));
+
+}
+
+
+
+.principalBlock {
+    width: 54%;
+    display: flex;
+    flex-direction: column;
+}
+
+.titlePrincipalBlock {
+    margin-top: 50px;
+}
+
+.contenerDateWeight {
+    background: linear-gradient(to right, rgba(243, 152, 91, 0.7), rgba(248, 126, 18, 0.89), rgb(241, 129, 43));
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+.hidden {
+    display : none;
+}
+
+
+.lastBlock {
+    width: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

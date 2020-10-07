@@ -1,0 +1,277 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/menuIndex.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="leftHeader">
+            <div class="nameCoach childHeader">
+                <span>Vincent Quiles</span>
+                <span>Créateur de SSN Coaching</span>
+            </div>
+
+        </div>
+        <div class="centerHeader childHeader">
+            <div class="titleHeader">
+                <h1>SSN Coaching Challenge</h1>
+                <span>Le santé, la vitalité, pour le meilleur</span>
+            </div>
+
+            <div class="gestionUI">
+                <div class="infoUser">
+                    <p>{{ app.user.getUsername() }}</p>
+                    <p class="hdenHumanDiet">{{ human.getFoodPreference() }}</p>
+                    <p>Phase
+                        ...</p> {# inscrire la phase en cours (surement à rajoute dans la bdd et dans human, ou juste dans human en fonction de la date de création du compte) #}
+                </div>
+                <div class="linkStat">
+                    <a href="{{ path("programme_stat_evolution") }}"><p>Stats et évolution</p></a>
+                </div>
+                <div class="mail">
+                    <a href=""><p>Nos messages</p></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightHeader childHeader">
+            <div class="contentRightHeader">
+                <div class="selectLanguageContent">
+                    <div class="contentEN langageNoSelect">EN</div>
+                    <div class="contentFR langageSelect">FR</div>
+                </div>
+                <div class="contentDeco">
+                    <a href="{{ path("security_logOut") }}">Déconnexion</a>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+    <div class="blocPage">
+        <div class="firstLeft blockDiv"></div>
+
+        <div class="secondBlock blockDiv">
+            <div class="onglet ongletTraining">
+                {% if human.getDemoAccount() == "false" %}
+                    <a href="{{ path("programme-sport-entrainements") }}">
+                        <div class="leftOnglet">
+                            <span class="titleOnglet">Mes training</span>
+                        </div>
+                        <div class="rightOnglet trainingRightOnglet">
+                            <div class="imgOnglet imgTrainingOnglet"></div>
+                        </div>
+                    </a>
+                {% else %}
+                    <a href="{{ path("programme-sport-entrainements-demo") }}">
+                        <div class="leftOnglet">
+                            <span class="titleOnglet">Mes training</span>
+                        </div>
+                        <div class="rightOnglet trainingRightOnglet">
+                            <div class="imgOnglet imgTrainingOnglet"></div>
+                        </div>
+                    </a>
+                {% endif %}
+            </div>
+            <div class="onglet ongletMeal">
+                <a href="">
+                    <div class="leftOnglet recetteLeftOnglet ongletSelected">
+                        <div class="titleOngletRecette">
+                            <span class="titleOnglet">Mes recettes</span>
+                        </div>
+                    </div>
+                    <div class="rightOnglet recetteRightOnglet">
+                        <div class="imgOnglet imgRecetteOnglet"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="onglet ongletPlanning">
+                <a href="{{ path("programme-sport-planning") }}">
+                    <div class="leftOnglet planningLeftOnglet">
+                        <span class="titleOnglet">Mon planning</span>
+                    </div>
+                    <div class="rightOnglet planningRightOnglet">
+                        <div class="imgOnglet imgPlanningOnglet"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="onglet ongletArticle">
+                <a href="{{ path("index") }}">
+                    <div class="leftOnglet articleLeftOnglet">
+                        <span class="titleOnglet">Mes articles</span>
+                    </div>
+                    <div class="rightOnglet articleRightOnglet">
+                        <div class="imgOnglet imgArticleOnglet"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <section class="thirdBlock principalBlock blockDiv">
+            <div class="titlePrincipalBlock"></div>
+            <div class="explicationPrincipalBlock"></div>
+            <div class="ipadContener">
+                {% for recetteBreakfast in recettesBreakfast %}
+                    <div class="ipadHorizontal">
+                        <div class="screenRecette petitdejeuner {{ recetteBreakfast.getDiet()[0] }}">
+                            <a class="lienScreenRecette"
+                               href="{{ path("programme-sport-recetteSelected", {slug:recetteBreakfast.getNameClass(), slugType:recetteBreakfast.getType()}) }}">
+                                <div class="topScreen">
+                                    <h2><strong>Petit déjeuner</strong></h2>
+                                </div>
+                                <div class="middleScreen imgRecette">
+                                    <div class="contenerImgScreen">
+                                        <img src="{{ asset("image/"~recetteBreakfast.getPathLogo()) }}">
+                                    </div>
+
+                                </div>
+
+                                <div class="bottomScreen textRecette">
+                                    <div class="contenerTextRecette">
+                                        <span>{{ recetteBreakfast.getName() }}</span>
+                                        <p>Un mélange de douceur et de saveur</p>
+                                        <p>Naturellement petillant et doux en bouche</p>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+                        <div class="hidden cacheIpad">
+                            <div class="contenerInfoNotDispo">
+                                <p></p>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+                {% for recetteLowCarb in recettesLowCarb %}
+                    <div class="ipadHorizontal">
+                        <div class="screenRecette lowcarb {{ recetteLowCarb.getDiet()[0] }}">
+                            <a class="lienScreenRecette"
+                               href="{{ path("programme-sport-recetteSelected", {slug:recetteLowCarb.getNameClass(), slugType:recetteLowCarb.getType()}) }}">
+                                <div class="topScreen">
+                                    <h2><strong>LowCarb</strong></h2>
+                                </div>
+                                <div class="middleScreen imgRecette">
+                                    <div class="contenerImgScreen">
+                                        <img src="{{ asset("image/"~recetteLowCarb.getPathLogo()) }}">
+                                    </div>
+
+                                </div>
+
+                                <div class="bottomScreen textRecette">
+                                    <div class="contenerTextRecette">
+                                        <span>{{ recetteLowCarb.getName() }}</span>
+                                        <p>Un mélange de douceur et de saveur</p>
+                                        <p>Naturellement petillant et doux en bouche</p>
+                                    </div>
+
+                                </div>
+
+                            </a>
+                        </div>
+
+                        <div class="hidden cacheIpad">
+                            <div class="contenerInfoNotDispo">
+                                <p></p>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+                {% for recetteHightCarb in recettesHightCarb %}
+                    <div class="ipadHorizontal">
+
+                        <div class="screenRecette postentrainement {{ recetteHightCarb.getDiet()[0] }}">
+                            <a class="lienScreenRecette"
+                               href="{{ path("programme-sport-recetteSelected", {slug:recetteHightCarb.getNameClass(), slugType:recetteHightCarb.getType()}) }}">
+                                <div class="topScreen">
+                                    <h2><strong>Post entraînement</strong></h2>
+                                </div>
+                                <div class="middleScreen imgRecette">
+                                    <div class="contenerImgScreen">
+                                        <img src="{{ asset("image/"~recetteHightCarb.getPathLogo()) }}">
+                                    </div>
+
+                                </div>
+
+                                <div class="bottomScreen textRecette">
+                                    <div class="contenerTextRecette">
+                                        <span>{{ recetteHightCarb.getName() }}</span>
+                                        <p>Un mélange de douceur et de saveur</p>
+                                        <p>Naturellement petillant et doux en bouche</p>
+                                    </div>
+
+                                </div>
+                            </a>
+
+                        </div>
+
+                        <div class="hidden cacheIpad">
+                            <div class="contenerInfoNotDispo">
+                                <p></p>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+                {% for recetteSnack in recettesSnack %}
+                    <div class="ipadHorizontal">
+                        <div class="screenRecette collations {{ recetteSnack.getDiet()[0] }}">
+                            <a class="lienScreenRecette"
+                               href="{{ path("programme-sport-recetteSelected", {slug:recetteSnack.getNameClass(), slugType:recetteSnack.getType()}) }}">
+                                <div class="topScreen">
+                                    <h2><strong>Collation</strong></h2>
+                                </div>
+                                <div class="middleScreen imgRecette">
+                                    <div class="contenerImgScreen">
+                                        <img src="{{ asset("image/"~recetteSnack.getPathLogo()) }}">
+                                    </div>
+
+                                </div>
+
+                                <div class="bottomScreen textRecette">
+                                    <div class="contenerTextRecette">
+                                        <span>{{ recetteSnack.getName() }}</span>
+                                        <p>Un mélange de douceur et de saveur</p>
+                                        <p>Naturellement petillant et doux en bouche</p>
+
+                                    </div>
+
+                                </div>
+
+                            </a>
+                        </div>
+
+
+                        <div class="hidden cacheIpad">
+                            <div class="contenerInfoNotDispo">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+
+        </section>
+
+        <div class="firstRight lastBlock blockDiv">
+            {{ human.getTotalCaloriesNeeded() * 0.5 }}
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/sport/menuIndex.js") }}"></script>
+{% endblock %}

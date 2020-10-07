@@ -1,0 +1,248 @@
+html {
+    height: 100%;
+}
+
+@font-face {
+    font-family: 'GilroyBold';
+    src: url('../police/Gilroy-ExtraBold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GilroyLight';
+    src: url('../police/Gilroy-Light.otf') format('truetype');
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FFF7F5
+}
+
+.blocPage {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.firstLeft {
+    width: 12%;
+    height: 100%;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 0 45px 45px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentCircleLogo {
+    height: 10%;
+}
+
+.divContentCircleLogo {
+    height: 50px;
+    width: 50px;
+    margin: 7% 0 0 52%;
+}
+
+.circleLogo {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.contentAllOnglet {
+    height: 70%;
+    width: 80%;
+    margin-top: 45%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+.onglet {
+    width: 100%;
+    height: 8.5%;
+    margin-bottom: 20%;
+    display: flex;
+}
+
+.onglet a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
+
+.leftOnglet {
+    width: 23.5%;
+}
+
+.imgOnglet {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.rightOnglet {
+    width: 65%;
+    margin-left: 4%;
+    display: flex;
+    align-items: center;
+}
+
+.principalBlock {
+    width: 68%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 4.4% 0 4.4%;
+}
+
+.filtresPrincipalBlock {
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+
+.titlePrincipalBlock, .divContentAllFiltres {
+    height: 30%;
+    margin-top: 3%;
+    display: flex;
+    align-items: center;
+}
+
+.titlePrincipalBlock {
+    width: content-box;
+}
+
+.divContentAllFiltres {
+    width: 70%;
+    margin-left: 7%;
+    display: flex;
+    align-items: center;
+}
+
+.contentFiltre {
+    width: content-box;
+    margin-right: 2%;
+    border: 1px solid rgba(0,35,70,0.8);
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(0,35,70, 0.2);
+}
+/*
+a regler nombre de px en fonction de taille écran
+ */
+.contentFiltre p {
+    margin: 0;
+    padding: 2px 13px 2px 13px;
+}
+
+.trainingSelected {
+    background-color: #002346;
+    color: #FFFFFF;
+}
+
+.iconesCircuit {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.hidden {
+    display : none;
+}
+
+.circuit {
+    width: 45%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 13px;
+    margin-bottom: 50px;
+    box-shadow: 0 3px 5px rgba(0,35,70, 0.04);
+}
+
+.circuit a {
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    text-decoration: none;
+
+
+}
+.child {
+    width: 100%;
+    height: 71%;
+    overflow: hidden;
+}
+
+.childImg {
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease;
+}
+
+.childImg img {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.divContenerInPictureTimeAndIntensity {
+    height: fit-content;
+    width: 25%;
+    position: relative;
+    bottom: 20%;
+    left: 8%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.divContenerInPictureTimeAndIntensity p {
+    padding: 0;
+    margin: 0;
+    font-family: GilroyBold, sans-serif;
+    color: #FFFFFF;
+    font-size: 15px;
+    letter-spacing: 0;
+}
+
+.childInformation {
+    height: 29%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.childInformation span {
+    color: black;
+    text-decoration: none;
+}
+
+.parent a:hover .childImg, .parent a:focus .childImg {
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

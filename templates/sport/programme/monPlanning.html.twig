@@ -1,0 +1,532 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/monPlanning.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="blocPage">
+        <div class="firstLeft blockDiv">
+            <div class="contentCircleLogo">
+                <div class="divContentCircleLogo">
+                    <a href="{{ path("programme_page_programs") }}" class="circleLogo"></a>
+                </div>
+
+            </div>
+            <div class="contentAllOnglet">
+                <div class="onglet ongletTraining">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-entrainements") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-entrainements-demo") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletMeal">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-recettes") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-recettes-demo") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletPlanning">
+                    <a href="{{ path("programme-sport-planning") }}">
+                        <div class="leftOnglet planningLeftOnglet">
+                            <div class="imgOnglet imgPlanningOnglet"></div>
+                        </div>
+                        <div class="rightOnglet planningRightOnglet">
+                            <span class="titleOnglet">Mon planning</span>
+                        </div>
+
+                    </a>
+                </div>
+                <div class="onglet ongletArticle">
+                    <a href="{{ path("index") }}">
+                        <div class="leftOnglet articleLeftOnglet">
+                            <div class="imgOnglet imgArticleOnglet"></div>
+                        </div>
+                        <div class="rightOnglet articleRightOnglet">
+                            <span class="titleOnglet">Mes articles</span>
+                        </div>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="secondBlock principalBlock blockDiv">
+            <div class="titleAndDatePlanning">
+                <div class="titlePrincipalBlock"><p>Mon Planning</p></div>
+                <div class="contenerWeekSelectAndDateWeek">
+                    <div class="contenerWeekSelect">
+                        <div class="previousWeek"><p> < </p></div>
+                        <div class="weekDate">
+                            <p class="firstDayWeekDate"></p>
+                            <p class="monthWeekDateFirstDay hidden"></p>
+                            <p>au</p>
+                            <p class="lastDayWeekDate"></p>
+                            <p class="monthWeekDate"></p>
+                            <p class="yearWeekDate"></p>
+                        </div>
+                        <div class="nextWeek"><p>></p></div>
+                    </div>
+                </div>
+
+                <div class="divContenerNumberSeance"><p>2/5 séances programmés</p></div>
+            </div>
+
+
+            <div class="divContentPlanning">
+                <table class="tableauPlanning tableauPlanning1">
+                    <thead>
+                    <tr class="lineTable lineTableDate">
+                        <script>
+
+                            /**
+                             * @type {Date}
+                             * Date for today
+                             */
+                            let date = new Date();
+
+                            /**
+                             * @type {Date}
+                             * first day of the first week of the planning
+                             */
+                            let dateFirstDayOFTheYear = new Date(2019, 11, 30);
+
+
+                            /**
+                             *
+                             * @type {Date}
+                             * last day of the first week of the planning
+                             */
+                            let dateTest = new Date(2020, 0, 5);
+
+                            /**
+                             *
+                             * @type {number}
+                             * the timestamp of one week
+                             */
+                            let diffTimeOneWeek = dateTest.valueOf() - dateFirstDayOFTheYear.valueOf();
+
+                            /**
+                             *
+                             * @type {Date}
+                             */
+                            let dateOneDayMore = new Date(dateTest.valueOf() + diffTimeOneWeek / 6);
+
+                            let lineDate = document.getElementsByClassName("lineTableDate");
+
+                            /**
+                             * The p to display the first day of the week
+                             * @type {HTMLCollectionOf<Element>}
+                             */
+                            let firstDayWeekDate = document.getElementsByClassName("firstDayWeekDate");
+
+                            /**
+                             * The p to display the last day of the week
+                             * @type {HTMLCollectionOf<Element>}
+                             */
+                            let lastDayWeekDate = document.getElementsByClassName("lastDayWeekDate");
+
+                            /**
+                             * The p to display the month of the week
+                             * @type {HTMLCollectionOf<Element>}
+                             */
+                            let monthWeekDate = document.getElementsByClassName("monthWeekDate");
+                            /**
+                             * The p to display the year of the week
+                             * @type {HTMLCollectionOf<Element>}
+                             */
+                            let yearWeekDate = document.getElementsByClassName("yearWeekDate");
+
+
+                            for (let i = 0; i < 52; i++) {
+                                //the time of the last day of the first week planning
+                                let timeStampStart = dateTest.valueOf();
+                                //The time of the first day after the last day of the previous week
+                                let timeDayAfterOne;
+                                //To have the good day for each new week dependant of i
+                                //The first is juste one day more, because the calcul in parenthesis equal to 0 for the first iteration
+                                timeDayAfterOne = timeStampStart + (diffTimeOneWeek / 6 * i * 7) + diffTimeOneWeek / 6;
+
+                                /**
+                                 * @type {Date}
+                                 * new Date with on day more in timestamp
+                                 */
+                                let dateBeginningWeek = new Date(timeDayAfterOne);
+
+                                let thDateWeekFirstDay = document.createElement("th");
+                                thDateWeekFirstDay.textContent = `${dateBeginningWeek.getDate()}/${dateBeginningWeek.getMonth() + 1}`;
+                                if (date.getMonth() === dateBeginningWeek.getMonth() && date.getDate() === dateBeginningWeek.getDate() && date.getFullYear() === dateBeginningWeek.getFullYear()) {
+                                    thDateWeekFirstDay.classList.add("weekActually");
+                                    thDateWeekFirstDay.classList.add("weekDisplayed");
+                                    thDateWeekFirstDay.classList.add("dayActually");
+                                }
+                                thDateWeekFirstDay.classList.add("date");
+                                thDateWeekFirstDay.classList.add(`week${i}`);
+                                thDateWeekFirstDay.classList.add("hidden");
+                                thDateWeekFirstDay.classList.add("firstDay");
+                                lineDate[0].appendChild(thDateWeekFirstDay);
+
+
+                                for (let j = 0; j < 5; j++) {
+                                    let time1DayAfter = dateBeginningWeek.valueOf() + diffTimeOneWeek / 6 * j + diffTimeOneWeek / 6;
+                                    /**
+                                     *
+                                     * @type {Date}
+                                     * new Date to have one day more for each iteration
+                                     */
+                                    let dateOneDayMore = new Date(time1DayAfter);
+                                    let thDateWeek = document.createElement("th");
+                                    thDateWeek.textContent = `${dateOneDayMore.getDate()}/${dateOneDayMore.getMonth() + 1}`;
+                                    thDateWeek.classList.add("date");
+                                    thDateWeek.classList.add(`week${i}`);
+                                    thDateWeek.classList.add("hidden");
+
+                                    if (date.getMonth() === dateOneDayMore.getMonth() && date.getDate() === dateOneDayMore.getDate() && date.getFullYear() === dateOneDayMore.getFullYear()) {
+                                        thDateWeek.classList.add("weekActually");
+                                        thDateWeek.classList.add("weekDisplayed");
+                                        thDateWeek.classList.add("dayActually");
+                                    }
+                                    lineDate[0].appendChild(thDateWeek);
+                                }
+
+                                /**
+                                 *
+                                 * @type {Date}
+                                 * new Date to have the last day of the week which has dateBeginningWeek as first day
+                                 */
+                                let dateFinishWeek = new Date(timeDayAfterOne + diffTimeOneWeek);
+
+
+                                let thDateWeekLastDay = document.createElement("th");
+                                thDateWeekLastDay.textContent = `${dateFinishWeek.getDate()}/${dateFinishWeek.getMonth() + 1}`;
+                                if (date.getMonth() === dateFinishWeek.getMonth() && date.getDate() === dateFinishWeek.getDate() && date.getFullYear() === dateFinishWeek.getFullYear()) {
+                                    thDateWeekLastDay.classList.add("weekActually");
+                                    thDateWeekLastDay.classList.add("weekDisplayed");
+                                    thDateWeekLastDay.classList.add("dayActually");
+                                }
+                                thDateWeekLastDay.classList.add("date");
+                                thDateWeekLastDay.classList.add(`week${i}`);
+                                thDateWeekLastDay.classList.add("hidden");
+                                thDateWeekLastDay.classList.add("lastDay");
+                                lineDate[0].appendChild(thDateWeekLastDay);
+
+                            }
+
+
+                            /**
+                             * @type {HTMLCollectionOf<Element>}
+                             * we use the first element to do the first loop while
+                             */
+                            let elementDateActually = document.getElementsByClassName("weekActually");
+
+                            /**
+                             * @type {Element}
+                             * we use this to do the second loop while
+                             */
+                            let dateActuallyBase = elementDateActually[0];
+                            let dateActuallyBaseNoModification = dateActuallyBase;
+
+                            /**
+                             * check if the only element which has class weekActually contains firstDay
+                             * If not, add the class weekActually in all the previousElementsSibling until the not included last day of the previous week
+                             */
+                            if (!elementDateActually[0].classList.contains("firstDay")) {
+                                while (!elementDateActually[0].previousElementSibling.classList.contains("lastDay")) {
+                                    elementDateActually[0].previousElementSibling.classList.add("weekDisplayed");
+                                    elementDateActually[0].previousElementSibling.classList.add("weekActually");
+                                    elementDateActually[0] = elementDateActually[0].previousElementSibling;
+                                }
+                            }
+
+                            /**
+                             * check if the only element which has class weekActually contains lastDay
+                             * If not, add the class weekActually in all the nextElementSibling until the not included first day of the next week
+                             */
+                            if (!dateActuallyBase.classList.contains("lastDay")) {
+                                while (!dateActuallyBase.nextElementSibling.classList.contains("firstDay")) {
+                                    dateActuallyBase.nextElementSibling.classList.add("weekActually");
+                                    dateActuallyBase.nextElementSibling.classList.add("weekDisplayed");
+                                    dateActuallyBase = dateActuallyBase.nextElementSibling;
+                                }
+                            }
+
+                            /**
+                             * Finally, remove the class hidden in the elements which contains week actually to show this last
+                             */
+                            for (let i = 0; i < elementDateActually.length; i++) {
+                                elementDateActually[i].classList.remove("hidden");
+                            }
+
+                            /**
+                             * We take the number day of the firstDay of the week actually
+                             * and assign for textContent to the firstDay week date title
+                             */
+                            firstDayWeekDate[0].textContent = elementDateActually[0].textContent.split("/")[0];
+                            /**
+                             * We take the number day of the lastDay of the week actually
+                             * and assign for textContent to the lastDay week date title
+                             */
+                            lastDayWeekDate[0].textContent = elementDateActually[6].textContent.split("/")[0];
+                            /**
+                             * We take the number of the month of the firstDay of the week actually
+                             * and save to use in function ReturnMonthSelect to return the good string month
+                             */
+                            let monthOfWeekActuallyFirstDay = elementDateActually[0].textContent.split("/")[1];
+                            /**
+                             * We take the number of the month of the lastDay of the week actually
+                             * and save to use in function ReturnMonthSelect to return the good string month
+                             */
+                            let monthOfWeekActuallylastDay = elementDateActually[6].textContent.split("/")[1];
+                            /**
+                             *
+                             */
+                            let monthOfWeekActuallyString;
+
+                            /**
+                             * return the good month with the number of the month writted in the firstDayWeekDate that is the firstDay of the week actually
+                             * @param monthElementSelected
+                             * @returns {string}
+                             */
+                            function ReturnMonthSelect(monthElementSelected) {
+                                let monthElementSelectedString;
+                                switch (monthElementSelected) {
+                                    case "1":
+                                        monthElementSelectedString = "Janvier";
+                                        break;
+                                    case "2":
+                                        monthElementSelectedString = "Février";
+                                        break;
+                                    case "3":
+                                        monthElementSelectedString = "Mars";
+                                        break;
+                                    case "4":
+                                        monthElementSelectedString = "Avril";
+                                        break;
+                                    case "5":
+                                        monthElementSelectedString = "Mai";
+                                        break;
+                                    case "6":
+                                        monthElementSelectedString = "Juin";
+                                        break;
+                                    case "7":
+                                        monthElementSelectedString = "Juillet";
+                                        break;
+                                    case "8":
+                                        monthElementSelectedString = "Aout";
+                                        break;
+                                    case "9":
+                                        monthElementSelectedString = "Septembre";
+                                        break;
+                                    case "10":
+                                        monthElementSelectedString = "Octobre";
+                                        break;
+                                    case "11":
+                                        monthElementSelectedString = "Novembre";
+                                        break;
+                                    case "12":
+                                        monthElementSelectedString = "Decembre";
+                                        break;
+                                }
+                                return monthElementSelectedString;
+
+                            }
+
+                            let monthFirstDayString = ReturnMonthSelect(monthOfWeekActuallyFirstDay);
+                            let monthLastDayString = ReturnMonthSelect(monthOfWeekActuallyFirstDay);
+                            /**
+                             * The text content is obligatory the month of the lastDay of the week actually
+                             * @type {string}
+                             */
+                            monthWeekDate[0].textContent = monthLastDayString;
+                            /**
+                             * But if the firstDay and lastDay don't have the same month
+                             * we add the month of the first day after the day of the first week in the title of the week date
+                             */
+                            if (monthFirstDayString !== monthLastDayString) {
+                                let monthFirstDayPara = document.getElementsByClassName("monthWeekDateFirstDay");
+                                monthFirstDayPara[0].textContent = monthFirstDayString;
+                                monthFirstDayPara[0].classList.remove("hidden");
+                            }
+
+                            /**
+                             * Just add the good year in the title of week date
+                             * @type {number}
+                             */
+                            yearWeekDate[0].textContent = date.getFullYear();
+
+                        </script>
+
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr class="lineTable lineTableInfo line1 lineTableInfo1">
+                    </tr>
+                    <tr class="lineTable lineTableInfo line2 lineTableInfo2">
+                    </tr>
+                    <tr class="lineTable lineTableInfo line3 lineTableInfo3">
+                    </tr>
+                    <tr class="lineTable lineTableInfo line4 lineTableInfo4">
+                    </tr>
+                    <tr class="lineTable lineTableInfo line5 lineTableInfo5">
+                    </tr>
+                    <tr class="lineTable lineTableInfo line6 lineTableInfo6">
+                    </tr>
+                    <script>
+                        let lineTableInfo = document.getElementsByClassName("lineTableInfo");
+                        let weekDisplayedDate = document.getElementsByClassName("weekDisplayed");
+                        /**
+                         * We have 52 weeks
+                         * For each line (we have 6 lines : Routines, petits déjeuner....)
+                         * For each weeks , we create :
+                         * 7 days with class week"i"
+                         *
+                         */
+                        for (let i = 0; i < 52; i++) {
+                            for (let j = 0; j < lineTableInfo.length; j++) {
+                                for (let i2 = 0; i2 < 7; i2++) {
+                                    let newTd = document.createElement("td");
+                                    newTd.classList.add(`week${i}`);
+
+                                    /**
+                                     * Get className line"number" of the parentElement and set on the td
+                                     * @type {string[]}
+                                     */
+                                    let classTabl = lineTableInfo[j].className.split(" ");
+                                    newTd.classList.add(classTabl[2]);
+
+                                    /**
+                                     * If the number week of the date is the same of the week's td
+                                     * add the class to display
+                                     * set as well the classeName line"number"displayed (check previous com) to find easily the td that displayed to change if click
+                                     * else add hidden to hidden
+                                     */
+                                    if (weekDisplayedDate[0].classList.contains(`week${i}`)) {
+                                        newTd.classList.add("weekDisplayed");
+                                        newTd.classList.add("weekDisplayedLineInfo");
+                                    } else {
+                                        newTd.classList.add("hidden");
+                                    }
+
+                                    if (i2 === 0) {
+                                        newTd.classList.add("lineFirstDay");
+                                        newTd.classList.add(`${classTabl[2]}FirstDay`);
+                                    }
+
+                                    if (i2 === 6) {
+                                        newTd.classList.add("lineLastDay");
+                                        newTd.classList.add(`${classTabl[2]}LastDay`);
+                                    }
+                                    newTd.classList.add("linePlanningRemplace");
+
+                                    switch (j) {
+                                        case 0:
+                                            newTd.classList.add("lineTraining");
+                                            createTextInCase("p", "Entraînement", "Veuillez choisir un entraînement", "", newTd);
+                                            break;
+                                        case 1:
+                                            newTd.classList.add("lineBreakfast");
+                                            createTextInCase("p", "Petit déjeuner", "Veuillez choisir un repas", "", newTd);
+                                            break;
+                                        case 2:
+                                            newTd.classList.add("lineSnack");
+                                            createTextInCase("p", "Collation 1", "Choisissez une collation", "", newTd);
+                                            break;
+                                        case 3:
+                                            newTd.classList.add("lineLunch");
+                                            createTextInCase("p", "Déjeuner", "Veuillez choisir un repas", "", newTd);
+                                            break;
+                                        case 4:
+                                            newTd.classList.add("lineSnack");
+                                            createTextInCase("p", "Collation 2", "Choisissez une collation", "", newTd);
+                                            break;
+                                        case 5:
+                                            newTd.classList.add("lineDinner");
+                                            createTextInCase("p", "Diner", "Veuillez choisir un repas", "", newTd);
+                                            break;
+                                    }
+
+
+                                    lineTableInfo[j].appendChild(newTd);
+
+
+                                }
+                            }
+                        }
+
+                        function createTextInCase(balise, text, indication1, indication2, elementParent){
+                            let nameCase = document.createElement(balise);
+                            nameCase.textContent = text;
+                            nameCase.classList.add("nameCase");
+                            let nameIndication1 = document.createElement(balise);
+                            nameIndication1.textContent = indication1;
+                            nameIndication1.classList.add("textIndication1");
+                            let divContentFirst = document.createElement("div");
+                            divContentFirst.classList.add("divContentFirst");
+                            divContentFirst.append(nameCase, nameIndication1);
+                            let nameIndication2 = document.createElement(balise);
+                            nameIndication2.textContent = indication2;
+                            nameIndication2.classList.add("textIndication2");
+                            let divContentSecond = document.createElement("div");
+                            divContentSecond.classList.add("divContentSecond");
+                            divContentSecond.appendChild(nameIndication2);
+                            elementParent.append(divContentFirst, divContentSecond);
+
+                        }
+
+
+                    </script>
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/sport/monPlanning.js") }}"></script>
+{% endblock %}
+
+

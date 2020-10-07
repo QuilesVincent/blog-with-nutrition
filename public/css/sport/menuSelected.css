@@ -1,0 +1,310 @@
+html {
+    height: 100%;
+}
+
+@font-face {
+    font-family: 'GilroyBold';
+    src: url('../police/Gilroy-ExtraBold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GilroyLight';
+    src: url('../police/Gilroy-Light.otf') format('truetype');
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FFF7F5
+}
+
+.blocPage {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.firstLeft {
+    width: 19.5%;
+    height: 100%;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 0 45px 45px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentCircleLogo {
+    height: 25%;
+}
+
+.divContentCircleLogo {
+    height: 50px;
+    width: 50px;
+    margin: 7% 0 0 52%;
+}
+
+.circleLogo {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.contentAllOnglet {
+    height: 70%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+.onglet {
+    width: 100%;
+    height: 8.5%;
+    margin-bottom: 20%;
+    display: flex;
+}
+
+.onglet a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
+
+.leftOnglet {
+    width: 23.5%;
+}
+
+.imgOnglet {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.rightOnglet {
+    width: 65%;
+    margin-left: 4%;
+    display: flex;
+    align-items: center;
+}
+
+.principalBlock {
+    width: 46.5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2% 4.4% 0 4.4%;
+}
+
+.iconesCircuit {
+    height: 302px;
+    width: 77%;
+    border-radius: 17px;
+    box-shadow: 1px 0 5px #a5a5a5;
+}
+
+.imgRecette {
+    height: 100%;
+    width: 100%;
+    border-radius: 17px;
+}
+
+.imgRecette img {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    border-radius: 17px;
+}
+
+.divContenerNameRecipe {
+    height: fit-content;
+    width: 80%;
+    position: relative;
+    bottom: 20%;
+    left: 8%;
+    display: flex;
+}
+
+.divContenerNameRecipe p {
+    padding: 0;
+    margin: 0;
+    font-family: GilroyBold, sans-serif;
+    color: #FFFFFF;
+    font-size: 25px;
+    letter-spacing: 0;
+}
+
+.explicationPrincipalBlock {
+    height: 47%;
+    margin-top: 7%;
+    display: flex;
+}
+
+.instruction {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.info div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.level, .typeMeal {
+    width: 12%;
+    height: 90%;
+    border-radius: 6px;
+    background-color: #5be597;
+    color: #FFFFFF;
+}
+
+.info p {
+    padding: 0;
+    margin: 0;
+}
+
+.typeMeal {
+    margin-left: 1%;
+}
+
+.timeToCook {
+    margin-left: 3%;
+}
+
+.contenerInstruction {
+    width: 94%;
+    text-align: justify;
+}
+.contenerInstruction p {
+    font-size : 18px;
+}
+
+.ingredients {
+    width: 40%;
+    background-color: rgba(243, 241, 210, 0.53);
+}
+.contenerIngredients {
+    width: 90%;
+    margin: auto;
+}
+
+.thirdBlock {
+    width: 25.2%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blockIngredient {
+    width: 73%;
+    height: 75%;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contentIngredients {
+    width: 70%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+}
+
+.circleDiv {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circleIngredients {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.ingredientsContent {
+    width: 50%;
+    height: 100%;
+    margin-bottom: 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ingredientsContent p {
+    margin: 0;
+    padding: 0;
+    height: 40%;
+}
+
+.nameIngredient {
+    margin-bottom: 10%;
+}
+
+.divNumberPortion {
+    display: flex;
+    flex-direction: column;
+}
+
+.numberDiv {
+    display: flex;
+}
+
+.divChangePortion {
+    height: 10px;
+    width: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.addToPlaning {
+    width: 73%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addToPlaning p {
+    padding: 6px 9px;
+    border-radius: 7px;
+    background-color: #5be497;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

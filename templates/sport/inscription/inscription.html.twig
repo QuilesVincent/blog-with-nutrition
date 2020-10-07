@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/programme/inscription.css") }}"
+{% endblock %}
+
+{% block body %}
+
+    <div class="divForm">
+
+        {{ form_start(form, {"attr": {"class": "form_co"}}) }}
+        <div class="lastnameContent divInput">
+            {{ form_widget(form.sex) }}
+        </div>
+        <div class="firstNameContent divInput">
+            {{ form_widget(form.age) }}
+        </div>
+        <div class="lastnameContent divInput">
+            {{ form_widget(form.weight) }}
+        </div>
+        <div class="usernameContent divInput">
+            {{ form_widget(form.size) }}
+        </div>
+        <div class="secretQuestionContent divInput">
+            {{ form_row(form.intolerance) }}
+        </div>
+        <div class="secretQuestionContent divInput">
+            {{ form_row(form.healthProblem) }}
+        </div>
+        <div class="secretQuestionContent divInput">
+            {{ form_row(form.allergy) }}
+        </div>
+        <div class="firstNameContent divInput">
+            {{ form_row(form.workType) }}
+        </div>
+        <div class="lastnameContent divInput">
+            {{ form_row(form.goalType) }}
+        </div>
+        <div class="secretQuestionContent divInput">
+            {{ form_row(form.sportInThePast) }}
+        </div>
+        <div class="usernameContent divInput">
+            {{ form_row(form.chestSize) }}
+        </div>
+        <div class="usernameContent divInput">
+            {{ form_row(form.waistSize) }}
+        </div>
+        <div class="usernameContent divInput">
+            {{ form_row(form.legCircumference) }}
+        </div>
+        <div class="connexion">
+            <a href="{{ path("programme_connexion") }}">Retour</a>
+            <input type="submit" value="S'inscrire">
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,318 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FFF7F5
+}
+
+.blocPage {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.firstLeft {
+    width: 10.5%;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 0 45px 45px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentCircleLogo {
+    height: 25%;
+}
+
+.divContentCircleLogo {
+    height: 50px;
+    width: 50px;
+    margin: 7% 0 0 52%;
+}
+
+.circleLogo {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.contentAllOnglet {
+    height: 70%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+.onglet {
+    width: 100%;
+    height: 8.5%;
+    margin-bottom: 20%;
+    display: flex;
+}
+
+.onglet a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
+
+.leftOnglet {
+    width: 23.5%;
+}
+
+.imgOnglet {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.rightOnglet {
+    width: 65%;
+    margin-left: 4%;
+    display: flex;
+    align-items: center;
+}
+
+.principalBlock {
+    width: 81%;
+    height: 96%;
+    display: flex;
+    flex-direction: column;
+    margin: 2% 4.4% 0 4.4%;
+}
+
+.titleAndDatePlanning {
+    height: 9%;
+    display: flex;
+}
+
+.titlePrincipalBlock {
+    display: flex;
+    align-items: center;
+}
+
+.contenerWeekSelectAndDateWeek {
+    height: content-box;
+    width: content-box;
+    margin-left: 3%;
+    display: flex;
+
+}
+
+.contenerWeekSelect {
+    width : content-box;
+    display: flex;
+    align-items: center;
+}
+
+.weekDate {
+    width: content-box;
+    display: flex;
+    padding: 0 2%;
+}
+
+.weekDate p {
+    padding: 0;
+    margin: 0 2px;
+}
+
+.divContenerNumberSeance {
+    height: 100%;
+    width: content-box;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.divContenerNumberSeance p {
+    height: content-box;
+    width: content-box;
+    padding: 4px 0;
+    background-color: red;
+    border-radius: 7px;
+}
+
+.divContentPlanning {
+    height: 87%;
+    width: 98%;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.tableauPlanning {
+    width: 98%;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+thead, tbody {
+    width: 100%;
+}
+thead {
+    height: 3%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 1% 0 0 0;
+}
+
+tbody {
+    height: 96%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.lineTableDate {
+    height: 100%;
+}
+tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+th, td {
+    width: calc(90%/7);
+    height: 100%;
+    box-shadow: 0 3px 5px rgba(0,35,70, 0.1);
+    border: 1px solid rgba(0,35,70, 0.1);
+}
+
+.lineTableInfo1, .lineTableInfo2, .lineTableInfo4, .lineTableInfo6 {
+    height: 15%;
+}
+
+.lineTableInfo3, .lineTableInfo5 {
+    height: 12%;
+}
+
+td {
+    height: 100%;
+    border-radius: 12px;
+    background-color: #f5f6f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.divContentFirst {
+    height: 50%;
+    width: 90%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 7%;
+}
+
+.divContentSecond {
+    height: content-box;
+    width: 90%;
+    margin: 0 0 6% 7%;
+
+}
+td p {
+    height: content-box;
+    padding: 0;
+    margin: 0;
+}
+
+.nameCase {
+    font-size: 11px;
+}
+
+.textIndication1, .nameIndication1{
+    font-size: 13px;
+    margin-top: 3%;
+}
+
+.textIndication1 {
+    color: #002346;
+}
+
+.nameIndication1 {
+    color: #f1b18d;
+}
+
+.textIndication2, .textToSee2 {
+    font-size: 11px;
+    text-decoration: underline;
+}
+
+
+.linePlanningRemplace img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.name {
+    width: calc(100%/5);
+}
+
+.successMessage {
+    background: linear-gradient(to right, rgb(239, 13, 42), rgba(255, 0, 0, 0.56), rgba(212, 7, 87, 0.65));
+}
+
+.contenerButtonSave {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+}
+.buttonSave {
+    width: 25%;
+    height: 100%;
+    margin: auto;
+    background: linear-gradient(to right, rgb(239, 13, 42), rgba(255, 0, 0, 0.56), rgba(212, 7, 87, 0.65));
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonSave p{
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+}
+.buttonSave:hover {
+    cursor: pointer;
+    background: linear-gradient(to right, rgb(255, 1, 32), rgba(206, 0, 0, 0.85), rgba(219, 0, 89, 0.65));
+}
+
+.hidden {
+    display : none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/sport/choiceFormule.css") }}"
+{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="nameAndLogo"></div>
+        <div class="fewThemes">
+            <p>Nutritions</p>
+            <p>HIIT</p>
+            <p>Yoga</p>
+            <p>Circuit Training</p>
+            <p>Stretching</p>
+        </div>
+        <div class="divContentNameUser">
+            <div class="contentNameUser">
+                <p>{{ app.user.getUsername() }}</p>
+            </div>
+        </div>
+    </header>
+    <div class="blocPage">
+        <div class="textPres">
+            <p>Rejoins la maison du fitness.com</p>
+            <p>Choisis ton offre</p>
+        </div>
+        <section class="allProducts">
+            {% for product in products %}
+                <div class="product">
+                    <p class="title">{{ product.getTitle() }}</p>
+                    <p class="formule">{{ product.getImage() }}</p>
+                    <p class="price"><strong>{{ product.getPrice() }} € </strong> / mois</p>
+                    <a href="{{ path("programme_sport_paiement-control", {id: product.getId()}) }}">Payer par carte</a>
+
+                </div>
+
+            {% endfor %}
+        </section>
+    </div>
+
+
+
+{% endblock %}

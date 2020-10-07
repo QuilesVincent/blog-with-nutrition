@@ -1,0 +1,169 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/menuSelected.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="blocPage">
+        <div class="firstLeft blockDiv">
+            <div class="contentCircleLogo">
+                <div class="divContentCircleLogo">
+                    <a href="{{ path("programme_page_programs") }}" class="circleLogo"></a>
+                </div>
+
+            </div>
+            <div class="contentAllOnglet">
+                <div class="onglet ongletTraining">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-entrainements") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-entrainements-demo") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletMeal">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-recettes") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-recettes-demo") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletPlanning">
+                    <a href="{{ path("programme-sport-planning") }}">
+                        <div class="leftOnglet planningLeftOnglet">
+                            <div class="imgOnglet imgPlanningOnglet"></div>
+                        </div>
+                        <div class="rightOnglet planningRightOnglet">
+                            <span class="titleOnglet">Mon planning</span>
+                        </div>
+
+                    </a>
+                </div>
+                <div class="onglet ongletArticle">
+                    <a href="{{ path("index") }}">
+                        <div class="leftOnglet articleLeftOnglet">
+                            <div class="imgOnglet imgArticleOnglet"></div>
+                        </div>
+                        <div class="rightOnglet articleRightOnglet">
+                            <span class="titleOnglet">Mes articles</span>
+                        </div>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section class="secondBlock principalBlock blockDiv">
+            <div class="iconesCircuit">
+                <div class="imgRecette">
+                    <img src="{{ asset("image/"~recette.getPathLogo()) }}" alt="Pâtes au thon">
+                </div>
+                <div class="divContenerNameRecipe">
+                    <p>{{ recette.getName() }}</p>
+                </div>
+
+            </div>
+            <div class="explicationPrincipalBlock">
+                <div class="instruction">
+                    <div class="info">
+                        <div class="level"><p>Facilité</p></div>
+                        <div class="typeMeal"><p>{{ recette.getDiet()[0] }}</p></div>
+                        <div class="timeToCook"><p>recette.getTimeToCook</p></div>
+                    </div>
+                    <div class="contenerInstruction">
+                        <!--Faire en sort que les explications soit les explications de la recette (intégrer donc à la classe)-->
+                        <h2>{{ recette.getName() }}</h2>
+                        <hr>
+                        {% for line in recette.getExplication() %}
+                            <p>{{ line }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="thirdBlock lastBlock blockDiv">
+            <div class="blockIngredient">
+                <h2>Ingrédients</h2>
+
+                {% for alim in recette.getArrayAllAlim() %}
+                    <div class="contentIngredients">
+                        <div class="circleDiv">
+                            <div class="circleIngredients"></div>
+                        </div>
+                        <div class="ingredientsContent">
+                            <p class="nameIngredient">{{ alim.getName() }} </p>
+                                {% if alim.PoidsMoyen is defined and alim.getQuantityNeeded() > 0.7*alim.PoidsMoyen %}
+                                    {% for i in 0..20 %}
+                                        {% if alim.getQuantityNeeded() >= i*alim.PoidsMoyen and alim.getQuantityNeeded() <= (i+0.6)*alim.PoidsMoyen %}
+                                            <p>X <span class="quantityIngredient">{{ i }}</span></p>
+                                        {% elseif alim.getQuantityNeeded() > (i+0.6)*alim.PoidsMoyen and alim.getQuantityNeeded() < (i+1)*alim.PoidsMoyen %}
+                                            <p>X <span class="quantityIngredient">{{ i+1 }}</span></p>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <p><span class="quantityIngredient">{{ alim.getQuantityNeeded() }}</span> grammes </p>
+                                {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+                <div class="divNumberPortion">
+                    <div><p>Portion</p></div>
+                    <div>
+                        <div class="numberDiv">
+                            <div class="divChangePortion divChangePortionLess"></div>
+                            <div class="number"><p>1</p></div>
+                            <div class="divChangePortion divChangePortionMore"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addToPlaning">
+                <p>Ajouter à mon planning</p>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/sport/menuSelected.js") }}"></script>
+{% endblock %}

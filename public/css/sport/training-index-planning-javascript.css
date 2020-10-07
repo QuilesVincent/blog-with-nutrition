@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.blocPage {
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+.firstBlock {
+    height: 13%;
+    display: flex;
+    background: linear-gradient(to right, rgb(239, 13, 42), rgba(255, 0, 0, 0.56), rgba(212, 7, 87, 0.65));
+
+}
+
+.secondBlock {
+    height: 12%;
+    display: flex;
+}
+.phaseTitle {
+    width: 10%;
+}
+
+.principalBlock {
+    margin-top: 2%;
+    height: 60%;
+}
+.iconesCircuit {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.circuit {
+    width: 40%;
+    margin: 5px;
+    border: 1px solid rgba(211 , 211, 211, 0.2);
+    background: rgba(211, 211, 211, 0.3);
+}
+
+.circuit:hover {
+    background: linear-gradient(to right, rgb(239, 13, 42), rgba(255, 0, 0, 0.56), rgba(212, 7, 87, 0.65));
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

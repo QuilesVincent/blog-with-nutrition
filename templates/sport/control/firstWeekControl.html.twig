@@ -1,0 +1,87 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/sport/weekControl.css") }}"
+{% endblock %}
+
+
+
+{% block body %}
+
+    <div class="weekDoneContener">
+        <p>Avez vous bien effectué la semaine complète ?</p>
+        <button class="weekDoneYes">Oui</button>
+        <button class="weekNotDone">Non</button>
+    </div>
+
+    <div class="contenerWhyWeekDontDone hidden">
+        <div class="questionText"><p>Quelles sont les raisons de cette petite semaine de loupé ? </p></div>
+        <div class="holidaysDiv"><p>Vacances ?</p></div>
+        <div class="maladieOrFiesta"><p>Malade ou trop fait la fête ?</p></div>
+        <div class="motivationMiss"><p>Petit coup de mou ?</p></div>
+    </div>
+
+    <div class="contenerAstuceAfterHolidays hidden">
+        <p>C'est très bien, les vacances sont faites pour se détendre et pouvoir reprendre à son maximum</p>
+        <p>Nous pouvons commencer par une courte détox, histoire de reprendre sur les meilleurs bases et à fond ;)
+            ;)</p>
+        <div class="buttonDetoxOrNot">
+            <button class="buttonDetoxYes">Detox</button>
+            <button class="buttonDetoxNot">Not detox</button>
+        </div>
+    </div>
+
+    <div class="contenerAstuceAfterMaladieOrFiesta hidden">
+        <div>
+            <p>Mettre image et texte proposant de faire une semaine détox</p>
+            <p>Souhaitez vous entamer 3 jours spécial détox dans votre planning personnel ??</p>
+            <div class="buttonDetoxProgrammationOrNot">
+                <button class="buttonDetoxProgrammationYes">Detox</button>
+                <button class="buttonDetoxProgrammationNot">Not Programmation</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenerPropositionBuyProduct hidden">
+        <div>
+            <p>Souhaitez vous recevoir, en express, les smoothie pour vos 3 jours spécial détox ??</p>
+            <div class="buttonDetoxBuyProductOrNot">
+                <div class="buttonBuyDetoxProduct">yes of course</div>
+                <div class="buttonDontBuyDetoxProduct">Not, i'm not interesting</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="messageToSayWhereFindSmoothieDetox hidden">
+        <div>
+            <p>Voici les différents smoothie detox que vous pouvez prendre</p>
+        </div>
+    </div>
+
+    <div class="divForm hidden">
+
+        {{ form_start(form, {"attr": {"class": "form_co"}}) }}
+        <div class="lastnameContent divInput">
+            {{ form_widget(form.weightControlLastWeek) }}
+        </div>
+        <div class="usernameContent divInput">
+            {{ form_widget(form.chestSizeControlLastWeek) }}
+        </div>
+        <div class="secretQuestionContent divInput">
+            {{ form_widget(form.waistSizeControlLastWeek) }}
+        </div>
+        <div class="secretQuestionContent divInput">
+            {{ form_widget(form.legCircumferenceControlLastWeek) }}
+        </div>
+        <div class="connexion">
+            <a href="{{ path("programme_connexion") }}">Retour</a>
+            <input type="submit" value="Valider">
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/sport/weekControl.js") }}"></script>
+{% endblock %}

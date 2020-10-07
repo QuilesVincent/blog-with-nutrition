@@ -1,0 +1,148 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/sport/training-index.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="blocPage">
+
+        <div class="firstLeft blockDiv">
+            <div class="contentCircleLogo">
+                <div class="divContentCircleLogo">
+                    <a href="{{ path("programme_page_programs") }}" class="circleLogo"></a>
+                </div>
+
+            </div>
+            <div class="contentAllOnglet">
+                <div class="onglet ongletTraining">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-entrainements") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-entrainements-demo") }}">
+                            <div class="leftOnglet trainingLeftOnglet">
+                                <div class="imgOnglet imgTrainingOnglet"></div>
+                            </div>
+                            <div class="rightOnglet trainingRightOnglet">
+                                <span class="titleOnglet">Mes training</span>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletMeal">
+                    {% if human.getDemoAccount() == "false" %}
+                        <a href="{{ path("programme-sport-recettes") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path("programme-sport-recettes-demo") }}">
+                            <div class="leftOnglet recetteLeftOnglet">
+                                <div class="imgOnglet imgRecetteOnglet"></div>
+                            </div>
+                            <div class="rightOnglet recetteRightOnglet">
+                                <div class="titleOngletRecette">
+                                    <span class="titleOnglet">Mes recettes</span>
+                                </div>
+                            </div>
+
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="onglet ongletPlanning">
+                    <a href="{{ path("programme-sport-planning") }}">
+                        <div class="leftOnglet planningLeftOnglet">
+                            <div class="imgOnglet imgPlanningOnglet"></div>
+                        </div>
+                        <div class="rightOnglet planningRightOnglet">
+                            <span class="titleOnglet">Mon planning</span>
+                        </div>
+
+                    </a>
+                </div>
+                <div class="onglet ongletArticle">
+                    <a href="{{ path("index") }}">
+                        <div class="leftOnglet articleLeftOnglet">
+                            <div class="imgOnglet imgArticleOnglet"></div>
+                        </div>
+                        <div class="rightOnglet articleRightOnglet">
+                            <span class="titleOnglet">Mes articles</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="secondBlock blockDiv principalBlock">
+            <div class="filtresPrincipalBlock">
+                <div class="titlePrincipalBlock"><p>Mes entraînements</p></div>
+                <div class="divContentAllFiltres">
+                    <div class="contentFiltre contentFiltreCircuitTraining">
+                        <p>Circuit Training</p>
+                    </div>
+                    <div class="contentFiltre contentFiltreYogaTraining">
+                        <p>Yoga</p>
+                    </div>
+                    <div class="contentFiltre contentFiltreFastTraining">
+                        <p>Fast Training</p>
+                    </div>
+                    <div class="contentFiltre contentFiltreAbdosTraining">
+                        <p>Abdos Training</p>
+                    </div>
+                    <div class="contentFiltre contentFiltreStretchingTraining">
+                        <p>Stretching</p>
+                    </div>
+                </div>
+            </div>
+            <div class="iconesCircuit">
+                {% for seances in programs %}
+                    {% for circuits in seances.getTraining() %}
+                        <div class="circuit parent {{ circuits.getType() }} {{ circuits.getTypeTraining() }}">
+                            <a href="{{ path("programme-sport-circuit", {slug:circuits.name}) }}">
+                                <div class="child">
+                                    <div class="childImg">
+                                        <img src="{{ asset("image/training"~circuits.name~".jpg") }}" alt="image du circuit">
+                                    </div>
+                                    <div class="divContenerInPictureTimeAndIntensity">
+                                        <div class="timeSeance"><p>{{ circuits.getTime() }} min</p></div>
+                                        <div class="intensitySeance"><p>{{ circuits.getIntensity() }} level</p></div>
+                                    </div>
+                                </div>
+                                <div class="childInformation">
+                                    <div class="textContentTypeCircuit {{ circuits.name }}">
+                                        <span class="imgCircuit imgCircuit{{ circuits.name }}">Séance {{ circuits.getType() }}</span>
+                                    </div>
+                                    <div class="textContentTypeAutreInfoOuPas">
+                                        <span>Circuit{{ circuits.name }}</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/sport/trainingIndex.js") }}"></script>
+{% endblock %}
