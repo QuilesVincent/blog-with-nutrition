@@ -183,7 +183,7 @@ window.onload = function () {
                                     textPictureDayTypeSeance.textContent = `Séance ${tableInformationPlanningArray[6]}`;
                                     divContentNameTrainingDayActually.lastElementChild.textContent = tableInformationPlanningArray[0];
                                     linkPlanningTrainingDayActually.firstElementChild.textContent = "voir l'entraînement";
-                                    linkPlanningTrainingDayActually.firstElementChild.href = `http://localhost/code/blog-with-nutritione/public/index.php/sport/programme/circuit/${tableInformationPlanningArray[0]}`;
+                                    linkPlanningTrainingDayActually.firstElementChild.href = `http://localhost/code/blog-with-nutrition/public/index.php/sport/programme/circuit/${tableInformationPlanningArray[0]}`;
                                     break;
                                 case "line1FirstDay" :
                                     console.log(tableInformationPlanningArray[4]);

@@ -56,13 +56,13 @@ class WebAuthenticator extends AbstractFormLoginAuthenticator
 
     protected function getLoginUrl()
     {
-        return $this->urlGenerator->generate("programme_connexion");
+        return $this->urlGenerator->generate("programme_sport_accueil");
     }
 
     public function supports(Request $request)
     {
         return $request->isMethod(Request::METHOD_POST)
-            && $request->attributes->get("_route") === "programme_connexion";
+            && $request->attributes->get("_route") === "programme_sport_accueil";
     }
 
     public function getCredentials(Request $request)
@@ -98,6 +98,6 @@ class WebAuthenticator extends AbstractFormLoginAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
-        return new RedirectResponse($this->urlGenerator->generate("programme_first_page"));
+        return new RedirectResponse($this->urlGenerator->generate("programme_sport_choice_formule"));
     }
 }

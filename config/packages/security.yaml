@@ -11,15 +11,6 @@ security:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
-    sport:
-      anonymous: lazy
-      provider: users
-      pattern: ^/sport
-      logout:
-        path: security_logOut
-      guard:
-        authenticators:
-          - App\Application\Security\Guard\Sport\WebAuthenticator
     admin:
       anonymous: lazy
       provider: users
@@ -36,7 +27,7 @@ security:
         path: security_logOut
       guard:
         authenticators:
-          - App\Application\Security\Guard\WebAuthenticator
+          - App\Application\Security\Guard\Sport\WebAuthenticator
 
       # activate different ways to authenticate
       # https://symfony.com/doc/current/security.html#firewalls-authentication

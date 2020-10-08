@@ -4,12 +4,9 @@
 namespace App\Domain\Sport\Controller;
 
 
-use App\Application\Entity\Human;
 use App\Application\Entity\Product;
 use App\Domain\Sport\Presenter\ChoiceFormulePresenterInterface;
-use App\Domain\Sport\Presenter\PageProgrammePresenterInterface;
 use App\Domain\Sport\Responder\ChoiceFormuleResponder;
-use App\Domain\Sport\Responder\PageProgrammeResponder;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +15,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Serializer\SerializerInterface;
 
-class ChoiceFormule
+class   ChoiceFormule
 {
 
     /**
